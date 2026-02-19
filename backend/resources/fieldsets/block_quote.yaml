@@ -1,0 +1,7 @@
+title: 'Quote Block'
+fields:
+  -
+    handle: quote
+    field:
+      type: textarea
+      display: Quote

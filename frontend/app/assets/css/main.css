@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+@import "tailwindcss";
+@import './config/type.css';
+@import './config/colors.css';
+@import './config/components.css';
+/* @import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
+
+@theme {
+  --color-theme-darkgreen: #003941;
+  --color-theme-darkblue: #333D90;
+  --color-theme-darkpurple: #482A45;
+  --color-theme-lightpink: #E3B9DF;
+  --color-theme-darkbrown: #402B1F;
+  --color-theme-lime: #CEFA5F;
+  --color-theme-offblack: #1E1E1E;
+  --color-theme-beige: #E2C9BD;
+  --spacing-single-space: calc(.4vw + .4vh + .6rem);
+  --spacing-double-space: calc(.8vw + .8vh + 1.2rem);
+  --spacing-triple-space: calc(1.2vw + 1.2vh + 1.8rem);
+  --spacing-quadruple-space: calc(1.6vw + 1.6vh + 2.4rem);
+  --spacing-sextuple-space: calc(2.4vw + 2.4vh + 3.6rem);
+}
+
+.bg-theme-darkgreen {
+  @apply bg-theme-darkgreen;
+}
+.text-theme-darkgreen {
+  @apply text-theme-darkgreen;
+}
+.bg-theme-darkblue {
+  @apply bg-theme-darkblue;
+}
+.bg-theme-darkbrown {
+  @apply bg-theme-darkbrown;
+}
+.text-theme-darkbrown {
+  @apply text-theme-darkbrown;
+}
+.bg-theme-darkpurple {
+  @apply bg-theme-darkpurple;
+}
+.text-theme-darkpurple {
+  @apply text-theme-darkpurple;
+}
+
+.grid-cols-2 {
+  @apply grid-cols-2;
+}
+.grid-cols-3 {
+  @apply grid-cols-3;
+}
+.grid-cols-4 {
+  @apply grid-cols-4;
+}
+
+.col-span-3 {
+  @apply col-span-3;
+}
+.col-span-4 {
+  @apply col-span-4;
+}
+.col-span-5 {
+  @apply col-span-5;
+}
+.col-span-6 {
+  @apply col-span-6;
+}
+.col-span-7 {
+  @apply col-span-7;
+}
+.col-span-8 {
+  @apply col-span-8;
+}
+
+.col-start-1 {
+  @apply col-start-1;
+}
+.col-start-2 {
+  @apply col-start-2;
+}
+.col-start-3 {
+  @apply col-start-3;
+}
+.col-start-6 {
+  @apply col-start-6;
+}
+.col-start-8 {
+  @apply col-start-8;
+}
+.col-start-9 {
+  @apply col-start-9;
+}

@@ -1,0 +1,7 @@
+title: 'News Block'
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title

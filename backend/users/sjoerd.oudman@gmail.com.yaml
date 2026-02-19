@@ -1,0 +1,23 @@
+name: Sjoerd
+super: true
+id: ec4ee5ce-7386-4d71-852e-4b01c42ebe1d
+password_hash: $2y$12$jh5KCvgkto0/fGSXjtl4k.Tz0HfA2nqlm/Pgyp1RvpsgxIJ07nfGG
+preferences:
+  collections:
+    pages:
+      view: tree
+    makers:
+      view: list
+    projects:
+      view: list
+    news:
+      view: list
+    events:
+      view: list
+      columns:
+        - title
+        - project
+        - event_title
+        - location
+        - city
+        - status

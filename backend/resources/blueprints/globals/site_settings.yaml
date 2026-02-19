@@ -1,0 +1,46 @@
+title: 'SIte settings'
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: site_url
+            field:
+              type: text
+              display: 'Site url'
+          -
+            handle: site_title
+            field:
+              type: text
+              display: 'Site title'
+          -
+            handle: site_description
+            field:
+              type: textarea
+              display: 'Site Description'
+          -
+            handle: site_image
+            field:
+              container: assets
+              max_files: 1
+              type: assets
+              display: 'Site Image'
+          -
+            handle: address
+            field:
+              type: textarea
+              display: Address
+          -
+            handle: email
+            field:
+              input_type: email
+              type: text
+              display: Email
+          -
+            handle: phone
+            field:
+              input_type: tel
+              type: text
+              display: Phone

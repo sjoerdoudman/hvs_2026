@@ -1,0 +1,63 @@
+title: Maker
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: image
+            field:
+              container: assets
+              max_files: 1
+              type: assets
+              display: Image
+          -
+            handle: function
+            field:
+              type: text
+              display: Function
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: description
+            field:
+              type: markdown
+              display: Description
+              localizable: true
+              buttons:
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - quote
+                - link
+              instructions: 'Short description for the teaser'
+          -
+            handle: updates
+            field:
+              collections:
+                - news
+              type: entries
+              display: Updates
+      -
+        display: Blocks
+        fields:
+          -
+            import: blocks
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

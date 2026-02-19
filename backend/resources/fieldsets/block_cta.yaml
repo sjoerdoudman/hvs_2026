@@ -1,0 +1,16 @@
+title: 'Call To Action Block'
+fields:
+  -
+    handle: text
+    field:
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - quote
+        - link
+      type: markdown
+      display: Text
+  -
+    import: buttons

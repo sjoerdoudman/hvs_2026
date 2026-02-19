@@ -1,0 +1,71 @@
+title: Blocks
+fields:
+  -
+    handle: blocks
+    field:
+      type: replicator
+      display: Blocks
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            title:
+              display: Title
+              icon: text-small
+              fields:
+                -
+                  import: block_title
+            media:
+              display: Media
+              icon: insert-image
+              fields:
+                -
+                  import: block_media
+            cta:
+              display: 'Call to action'
+              icon: bell
+              fields:
+                -
+                  import: block_cta
+            multi_column:
+              display: 'Multi Column'
+              icon: layout-three-columns
+              fields:
+                -
+                  import: block_multi_column_text
+            text_image:
+              display: 'Image + Text'
+              icon: dashboard-layout-2
+              fields:
+                -
+                  import: block_text_image
+            quote:
+              display: Quote
+              icon: quote
+              fields:
+                -
+                  import: block_quote
+            slideshow:
+              display: Slideshow
+              icon: slider
+              fields:
+                -
+                  import: block_slideshow
+            makers:
+              display: Makers
+              icon: mask
+              fields:
+                -
+                  import: block_makers
+            news:
+              display: News
+              icon: media-news-paper
+              fields:
+                -
+                  import: block_news
+            people:
+              display: People
+              icon: fieldtype-users
+              fields:
+                -
+                  import: block_people

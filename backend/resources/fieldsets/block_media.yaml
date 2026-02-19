@@ -1,0 +1,16 @@
+title: 'Media Block'
+fields:
+  -
+    handle: image
+    field:
+      container: assets
+      max_files: 1
+      type: assets
+      display: Image
+      validate:
+        - required
+  -
+    handle: video
+    field:
+      type: video
+      display: Video

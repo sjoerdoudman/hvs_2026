@@ -1,0 +1,36 @@
+title: 'People Block'
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: items
+    field:
+      type: replicator
+      display: People
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            item:
+              display: Person
+              fields:
+                -
+                  handle: image
+                  field:
+                    container: assets
+                    max_files: 1
+                    type: assets
+                    display: Image
+                -
+                  handle: function
+                  field:
+                    type: text
+                    display: Function
+                -
+                  handle: name
+                  field:
+                    type: text
+                    display: Name

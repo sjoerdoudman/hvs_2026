@@ -1,0 +1,28 @@
+title: 'Text + Image block'
+fields:
+  -
+    handle: image
+    field:
+      container: assets
+      max_files: 1
+      type: assets
+      display: Image
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: text
+    field:
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - quote
+        - link
+      type: markdown
+      display: Text
+  -
+    import: buttons

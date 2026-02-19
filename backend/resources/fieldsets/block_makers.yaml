@@ -1,0 +1,24 @@
+title: 'Makers Block'
+fields:
+  -
+    handle: items
+    field:
+      collections:
+        - makers
+      type: entries
+      display: Items
+  -
+    handle: size
+    field:
+      options:
+        -
+          key: small
+          value: Small
+        -
+          key: large
+          value: Large
+      default: small
+      type: radio
+      display: Size
+  -
+    import: buttons

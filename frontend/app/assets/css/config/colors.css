@@ -1,0 +1,30 @@
+@layer colors {
+
+    /* Pink highlight */
+    .theme.bg-theme-darkgreen .text-highlight,
+    .theme.bg-theme-darkblue .text-highlight {
+        @apply text-theme-lightpink;
+    }
+    .theme.bg-theme-darkgreen .bg-highlight,
+    .theme.bg-theme-darkblue .bg-highlight {
+        @apply bg-theme-lightpink;
+    }
+    .theme.bg-theme-darkgreen .fill-highlight,
+    .theme.bg-theme-darkblue .fill-highlight {
+        @apply fill-theme-lightpink;
+    }
+
+    /* Beige highlight */
+    .theme.bg-theme-darkbrown .text-highlight,
+    .theme.bg-theme-darkpurple .text-highlight {
+        @apply text-theme-beige;
+    }
+    .theme.bg-theme-darkbrown .bg-highlight,
+    .theme.bg-theme-darkpurple .bg-highlight {
+        @apply bg-theme-beige;
+    }
+    .theme.bg-theme-darkbrown .fill-highlight,
+    .theme.bg-theme-darkpurple .fill-highlight {
+        @apply fill-theme-beige;
+    }
+}

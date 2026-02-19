@@ -1,0 +1,39 @@
+@layer components {
+
+    *[class^='container-'] {
+        @apply mx-auto max-w-full;
+    }
+    .container--md {
+        @apply max-w-[80vw] mx-auto px-4 md:px-8;
+    }
+    .container--lg {
+        @apply max-w-[1728px] mx-auto px-4 md:px-8;
+    }
+    .content-column {
+        @apply max-w-[840px]
+    }
+
+    .title-block {
+        @apply flex flex-col gap-2;
+    }
+    .title-block h2, .title-block p {
+       @apply !text-[calc(.85rem+.85vw+.85vh)];
+    }
+
+    .swiper-pagination {
+        @apply !bottom-double-space
+    }
+    .swiper-pagination-bullet {
+        @apply !bg-theme-lime
+    }
+    .swiper-pagination-bullet-active {
+        @apply !bg-white
+    }
+    .swiper-button-prev, .swiper-button-next {
+        @apply !bg-theme-lime !text-black
+    }
+
+    .router-link-active {
+        @apply underline underline-offset-[.15em]
+    }
+}

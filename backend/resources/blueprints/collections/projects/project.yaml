@@ -1,0 +1,61 @@
+title: Project
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: image
+            field:
+              container: assets
+              max_files: 1
+              type: assets
+              display: Image
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: description
+            field:
+              type: textarea
+              display: Description
+      -
+        display: Blocks
+        fields:
+          -
+            import: blocks
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: year
+            field:
+              type: text
+              display: Year
+          -
+            handle: running
+            field:
+              default: true
+              type: toggle
+              display: 'Currently running'
+          -
+            handle: makers
+            field:
+              collections:
+                - makers
+              type: entries
+              display: Makers
+              create: false

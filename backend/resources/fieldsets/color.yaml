@@ -1,0 +1,18 @@
+title: Color
+fields:
+  -
+    handle: color
+    field:
+      options:
+        -
+          key: darkblue
+          value: 'Dark Blue'
+        -
+          key: darkpurple
+          value: 'Dark Purple'
+        -
+          key: darkgreen
+          value: 'Dark Green'
+      default: darkblue
+      type: radio
+      display: Color

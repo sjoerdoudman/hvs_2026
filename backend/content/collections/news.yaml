@@ -1,0 +1,16 @@
+title: News
+icon: collections
+template: default
+layout: layout
+mount: 122e4a0b-da33-4f08-9338-67094a496109
+taxonomies:
+  - categories
+revisions: false
+route: '{mount}/{slug}'
+date: true
+sort_dir: asc
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true

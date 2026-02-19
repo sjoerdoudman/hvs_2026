@@ -1,0 +1,30 @@
+title: 'Slideshow Block'
+fields:
+  -
+    handle: slides
+    field:
+      type: replicator
+      display: Slides
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            slide:
+              display: Slide
+              icon: orientation-image-picture-horizontal-landscape
+              fields:
+                -
+                  handle: image
+                  field:
+                    container: assets
+                    max_files: 1
+                    type: assets
+                    display: Image
+                    validate:
+                      - required
+                -
+                  handle: caption
+                  field:
+                    character_limit: 100
+                    type: text
+                    display: Caption

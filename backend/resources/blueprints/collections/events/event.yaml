@@ -1,0 +1,91 @@
+title: Event
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: date
+            field:
+              time_enabled: true
+              type: date
+              display: Date
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              display: 'Event date'
+              visibility: computed
+              validate:
+                - sometimes
+                - required
+              if:
+                date: '< 1972-01-01'
+          -
+            handle: event_title
+            field:
+              type: text
+              display: Title
+          -
+            handle: description
+            field:
+              character_limit: 300
+              type: textarea
+              display: Description
+          -
+            handle: location
+            field:
+              type: text
+              display: Location
+          -
+            handle: city
+            field:
+              type: text
+              display: City
+          -
+            handle: ticket_status
+            field:
+              options:
+                -
+                  key: available
+                  value: 'Tickets available'
+                -
+                  key: closed
+                  value: 'Closed for public'
+                -
+                  key: sold_out
+                  value: 'Sold out'
+              default: closed
+              type: radio
+              display: 'Ticket status'
+          -
+            handle: ticket_url
+            field:
+              input_type: url
+              type: text
+              display: 'Ticket URL'
+              if:
+                ticket_status: 'equals available'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+              visibility: hidden
+          -
+            handle: project
+            field:
+              collections:
+                - projects
+              max_items: 1
+              type: entries
+              display: Project
+              create: false

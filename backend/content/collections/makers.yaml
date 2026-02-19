@@ -1,0 +1,16 @@
+title: Makers
+icon: collections
+template: default
+layout: layout
+mount: 2fd2bae4-7444-4f6b-99d1-18b023c92d9b
+revisions: false
+route: '{mount}/{slug}'
+sort_dir: asc
+date_behavior:
+  past: null
+  future: null
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true

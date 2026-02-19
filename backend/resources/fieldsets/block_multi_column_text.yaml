@@ -1,0 +1,47 @@
+title: 'Multi Column Text Block'
+fields:
+  -
+    handle: cols
+    field:
+      placeholder: '3'
+      min: 2
+      max: 4
+      type: integer
+      display: 'Number of columns'
+  -
+    handle: items
+    field:
+      type: replicator
+      display: Items
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            col:
+              display: Col
+              fields:
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: Title
+                -
+                  handle: text
+                  field:
+                    buttons:
+                      - bold
+                      - italic
+                      - unorderedlist
+                      - orderedlist
+                      - quote
+                      - link
+                    type: markdown
+                    display: Text
+                -
+                  handle: expanded_text
+                  field:
+                    type: markdown
+                    display: 'Expanded text'
+                    instructions: 'Use this to add text that can be toggled by the user'
+  -
+    import: buttons

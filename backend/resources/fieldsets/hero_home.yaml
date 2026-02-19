@@ -1,0 +1,14 @@
+title: 'Hero Home'
+fields:
+  -
+    handle: description
+    field:
+      type: text
+      display: Description
+  -
+    handle: images
+    field:
+      container: assets
+      max_files: 6
+      type: assets
+      display: Images

@@ -1,0 +1,89 @@
+title: News
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: image
+            field:
+              container: assets
+              max_files: 1
+              type: assets
+              display: Image
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: description
+            field:
+              character_limit: 300
+              type: textarea
+              display: Description
+              instructions: 'Short description for a teaser'
+          -
+            handle: text
+            field:
+              buttons:
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - quote
+                - link
+              type: markdown
+              display: Text
+          -
+            import: buttons
+      -
+        display: Blocks
+        fields:
+          -
+            import: blocks
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: author
+            field:
+              type: users
+              display: Author
+              default: current
+              localizable: true
+              max_items: 1
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+          -
+            handle: categories
+            field:
+              type: terms
+              taxonomies:
+                - categories
+              display: Categories
+              mode: select
+          -
+            handle: makers
+            field:
+              collections:
+                - makers
+              type: entries
+              display: Makers

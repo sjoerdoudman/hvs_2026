@@ -1,0 +1,19 @@
+title: 'Title Block'
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      validate:
+        - required
+  -
+    handle: description
+    field:
+      character_limit: 400
+      container: assets
+      remove_empty_nodes: false
+      type: bard
+      display: Description
+  -
+    import: buttons
