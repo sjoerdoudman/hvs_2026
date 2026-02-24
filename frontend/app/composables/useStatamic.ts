@@ -1,7 +1,7 @@
 import { useStatamicStore } from "~/stores/statamic";
 import { storeToRefs } from 'pinia'
 
-export const useStatamicPages = () => {
+export const useStatamic = () => {
   const store = useStatamicStore()
   const config = useRuntimeConfig()
 
@@ -50,6 +50,33 @@ export const useStatamicPages = () => {
     }
   )
 
+  const { data: mainMenuData, pending: mainMenuPending, error: mainMenuError } = useFetch(
+    `${config.public.API_URL}/navs/main/tree?fields=title,url&max_depth=2`,
+    {
+      key: 'statamic-main-menu',
+      server: false, // Only run on client side for now
+      transform: (response: any) => response.data,
+    }
+  )
+
+  const { data: footerMenuData, pending: footerMenuPending, error: footerMenuError } = useFetch(
+    `${config.public.API_URL}/navs/footer/tree?fields=title,url&max_depth=2`,
+    {
+      key: 'statamic-footer-menu',
+      server: false, // Only run on client side for now
+      transform: (response: any) => response.data,
+    }
+  )
+
+  const { data: globalData, pending: globalPending, error: globalError } = useFetch(
+    `${config.public.API_URL}/globals`,
+    {
+      key: 'statamic-globals',
+      server: false, // Only run on client side for now
+      transform: (response: any) => response.data,
+    }
+  )
+
   // Update pages data
   watchEffect(() => {
     if (pagesData.value) {
@@ -85,13 +112,39 @@ export const useStatamicPages = () => {
     }
   })
 
+  // Update main menu data
+  watchEffect(() => {
+    mainMenuData.value
+    if (mainMenuData.value) {
+      store.setMainMenu(mainMenuData.value)
+    }
+  })
+
+  // Update footer menu data
+  watchEffect(() => {
+    footerMenuData.value
+    if (footerMenuData.value) {
+      store.setFooterMenu(footerMenuData.value)
+    }
+  })
+
+  // Update globals data
+  watchEffect(() => {
+    globalData.value
+    if (globalData.value) {
+      store.setGlobals(globalData.value)
+    }
+  })
+
   return {
     pages: storeToRefs(store).pages,
     news: storeToRefs(store).news,
     makers: storeToRefs(store).makers,
     projects: storeToRefs(store).projects,
     events: storeToRefs(store).events,
-    loading: computed(() => pagesPending.value || newsPending.value || makersPending.value || projectsPending.value || eventsPending.value),
-    error: computed(() => pagesError.value || newsError.value || makersError.value || projectsError.value || eventsError.value),
+    mainMenu: storeToRefs(store).mainMenu,
+    globals: storeToRefs(store).globals,
+    loading: computed(() => pagesPending.value || newsPending.value || makersPending.value || projectsPending.value || eventsPending.value) || mainMenuPending.value || footerMenuPending.value || globalPending.value,
+    error: computed(() => pagesError.value || newsError.value || makersError.value || projectsError.value || eventsError.value) || mainMenuError.value || footerMenuError.value || globalError.value,
   }
 }

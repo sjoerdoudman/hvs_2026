@@ -21,6 +21,7 @@
 /storage/*.key
 /storage/pail
 /vendor
+/content/globals/default/site_settings.yaml
 Homestead.json
 Homestead.yaml
 Thumbs.db

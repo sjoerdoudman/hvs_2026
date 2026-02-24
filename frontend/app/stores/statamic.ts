@@ -7,6 +7,9 @@ export const useStatamicStore = defineStore('statamic', {
     makers: [] as any[],
     projects: [] as any[],
     events: [] as any[],
+    mainMenu: [] as any[],
+    footerMenu: [] as any[],
+    globals: [] as any[],
     loading: false,
     error: null as string | null,
   }),
@@ -30,6 +33,18 @@ export const useStatamicStore = defineStore('statamic', {
 
     setEvents(events: any[]) {
       this.events = events
+    },
+
+    setMainMenu(mainMenu: any[]) {
+      this.mainMenu = mainMenu
+    },
+
+    setFooterMenu(footerMenu: any[]) {
+      this.footerMenu = footerMenu
+    },
+
+    setGlobals(globals: any[]) {
+      this.globals = globals
     },
 
     setLoading(value: boolean) {

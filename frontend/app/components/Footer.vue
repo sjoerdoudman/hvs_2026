@@ -1,8 +1,8 @@
 <template>
     <footer
-        :aria-hidden="footerIsFocusable ? 'false' : 'true'"
-        inert
         ref="footerRef"
+        :aria-hidden="footerIsFocusable ? 'false' : 'true'"
+        :tabindex="footerIsFocusable ? '0' : '-1'"
         :class="[ hideFooter ? 'hidden' : '' ]"
         class="flex flex-col gap-sextuple-space"
     >
@@ -10,40 +10,27 @@
            <div class="grid grid-cols-4 pt-double-space">
                 <nav class="col-span-1">
                    <ul>
-                        <li>
-                            <nuxt-link to="/makers" class="text-[1.25rem] font-bold uppercase hover:text-theme-darkblue focus:text-theme-darkblue">Makers</nuxt-link>
-                        </li>
-                         <li>
-                            <nuxt-link to="/over-ons" class="text-[1.25rem] font-bold uppercase hover:text-theme-darkblue focus:text-theme-darkblue">Over Ons</nuxt-link>
-                        </li>
-                        <li>
-                            <nuxt-link to="/samenwerken" class="text-[1.25rem] font-bold uppercase hover:text-theme-darkblue focus:text-theme-darkblue">Samenwerken</nuxt-link>
-                        </li>
-                        <li>
-                            <nuxt-link to="/nieuws" class="text-[1.25rem] font-bold uppercase hover:text-theme-darkblue focus:text-theme-darkblue">Nieuws</nuxt-link>
-                        </li>
+                        <li v-for="link in mainmenu" :key="link.id"><nuxt-link :to="link.page.url" class="text-[1.25rem] font-bold uppercase hover:text-theme-darkblue focus:text-theme-darkblue">{{ link.page.title }}</nuxt-link></li>
                    </ul>
                 </nav>
                 <div class="col-span-1 flex flex-col gap-single-space">
-                    <p>
-                        Huis Salomon<br>
-                        Straatnaam 100<br>
-                        4124 AB Amsterdam
-                    </p>
-                    <p>
-                        info@huissalomon.nl<br>
-                        020 4025218
-                    </p>
+                    <div v-if="settings" class="flex flex-col gap-single-space">
+                        <p v-if="settings.address" class="whitespace-pre-line" v-html="settings.address"></p>
+                        <p>
+                            <a :href="`mailto:${settings.email }`" v-html="settings.email"></a><br>
+                            <a :href="`tel:${settings.phone }`" v-html="settings.phone"></a>
+                        </p>
+                    </div>
                     <ul>
-                        <li><nuxt-link to="/pers">Pers</nuxt-link></li>
-                        <li><nuxt-link to="/colophon">Colophon</nuxt-link></li>
-                        <li><nuxt-link to="/privacy">Privacy</nuxt-link></li>
+                        <li v-for="link in footermenu" :key="link.id">
+                            <nuxt-link :to="link.page.url" class="hover:underline underline-offset-4">
+                                {{ link.page.title }}
+                            </nuxt-link>
+                        </li>
                     </ul>
                 </div>
-                <div class="col-span-2">
-                    <p class="content-column !text-[1.85rem]">
-                        De makers van Huis Salomon zijn ieder op hun eigen manier, eigen plek en eigen onderzoek gericht op het stimuleren van professionele twijfel. De verhalen die ze ontdekken worden gedeeld in artistieke vormen en omgezet in trainingen waarin medemenselijkheid en radicale empathie centraal staan.
-                    </p>
+                <div class="col-span-2 min-h-[350px]">
+                    <p class="content-column !text-[1.85rem]" v-html="settings?.site_description"></p>
                 </div>
            </div>
         </div>
@@ -58,7 +45,28 @@
 </template>
 
 <script setup lang="ts">
+    import { useStatamicStore } from '@/stores/statamic';
     import { useUIStore } from '@/stores/ui';
+    const store = useStatamicStore();
     const ui = useUIStore();
+
+    const { mainMenu, footerMenu, globals } = storeToRefs(store)
     const { hideFooter, footerIsFocusable } = storeToRefs(ui);
+
+    const mainmenu = ref<any>(null)
+    const footermenu = ref<any>(null)
+    const settings = ref<any>(null)
+
+    watchEffect(() => {
+        if (mainMenu.value) {
+            mainmenu.value = mainMenu.value
+        }
+        if (footerMenu.value) {
+            footermenu.value = footerMenu.value
+        }
+        if (globals.value) {
+            // filter the global with handle site_settings return
+            settings.value = globals.value.filter((global: any) => global.handle === 'site_settings')[0]
+        }
+    })
 </script>

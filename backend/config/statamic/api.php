@@ -19,10 +19,10 @@ return [
 
     'resources' => [
         'collections' => true,
-        'navs' => false,
+        'navs' => true,
         'taxonomies' => false,
         'assets' => false,
-        'globals' => false,
+        'globals' => true,
         'forms' => false,
         'users' => false,
     ],

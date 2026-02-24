@@ -1,9 +1,9 @@
 <template>
-    <div class="w-full relative z-10" :style="{ marginBottom: footer ? fh + 'px' : '0px' }">
+    <div class="w-full relative z-10" :class="[footerIsFocusable ? 'pointer-events-none' : '']" :style="{ marginBottom: footer ? fh + 'px' : '0px' }">
         <div :class="[ `theme bg-theme-${theme}` ]" class=" text-white">
             <Header class="duration-300" :class="[ showHeader ? 'opacity-100' : 'opacity-0 pointer-events-none' ]" />
             <NavigationMain></NavigationMain>
-            <div class="min-h-screen" :class="`bg-theme-${theme}`">
+            <div class="min-h-screen" :class="[`bg-theme-${theme}`]">
                 <NuxtPage />
             </div>
         </div>
@@ -13,12 +13,13 @@
 
 <script setup lang="ts">
     import { useUIStore } from '@/stores/ui';
-    const { pages, news, makers, events, loading } = useStatamicPages()
+    const { pages, news, makers, events, mainMenu, globals, loading } = useStatamic()
     const ui = useUIStore();
     const { toggleHideFooter, toggleFooterIsFocusable } = ui;
     const { theme } = storeToRefs(ui);
 
     const footer = ref<{$el: HTMLElement} | null>(null);
+    const footerIsFocusable = ref(false);
     const fh = ref<number>(0);
     const showHeader = ref(true);
 
@@ -30,8 +31,10 @@
 
         if (sy > sh - wh) {
             toggleFooterIsFocusable(true)
+            footerIsFocusable.value = true
         } else {
             toggleFooterIsFocusable(false)
+            footerIsFocusable.value = false
         }
         if (sy > wh) {
             document.body.classList.add('!bg-theme-lime')
