@@ -1,0 +1,32 @@
+title: SEO
+fields:
+  -
+    handle: seo_title
+    field:
+      type: text
+      display: 'SEO title'
+  -
+    handle: seo_description
+    field:
+      character_limit: 200
+      type: textarea
+      display: 'SEO description'
+  -
+    handle: social_title
+    field:
+      type: text
+      display: 'Social title'
+  -
+    handle: social_description
+    field:
+      character_limit: 200
+      type: textarea
+      display: 'Social description'
+  -
+    handle: social_image
+    field:
+      container: assets
+      type: assets
+      display: 'Social Image'
+      instructions: 'Recommended size: 1200x630px'
+      max_files: 1

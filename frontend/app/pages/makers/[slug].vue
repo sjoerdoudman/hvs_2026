@@ -15,7 +15,20 @@
 
     const ui = useUIStore();
     const { updateTheme } = ui;
-    const { theme } = storeToRefs(ui)
+
+     watchEffect(() => {
+        if (maker.value) {
+            useMetaData({
+                title: maker.value?.seo_title || maker.value?.title,
+                description: maker.value?.seo_description || maker.value?.description,
+                noIndex: maker.value?.seo_no_index,
+                noFollow: maker.value?.seo_no_follow,
+                socialImage: maker.value?.social_image,
+                socialTitle: maker.value?.social_title,
+                socialDescription: maker.value?.social_description,
+            });
+        }
+    });
 
     onMounted(() => {
         updateTheme('darkgreen');

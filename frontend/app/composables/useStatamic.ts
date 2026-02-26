@@ -6,7 +6,7 @@ export const useStatamic = () => {
   const config = useRuntimeConfig()
 
   const { data: pagesData, pending: pagesPending, error: pagesError } = useFetch(
-    `${config.public.API_URL}/collections/pages/entries?fields=id,slug,title,description,images,blocks,color,blueprint`,
+    `${config.public.API_URL}/collections/pages/entries?fields=id,slug,title,description,images,blocks,color,blueprint,seo_title,seo_description,social_title,social_description,social_description,social_image`,
     {
       key: 'statamic-pages',
       server: false, // Only run on client side for now

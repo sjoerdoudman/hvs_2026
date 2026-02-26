@@ -39,6 +39,15 @@
     watchEffect(() => {
         if (page.value) {
             updateTheme(page.value?.color?.value || 'darkblue');
+            useMetaData({
+                title: page.value?.seo_title || page.value?.title,
+                description: page.value?.seo_description || page.value?.description,
+                noIndex: page.value?.seo_no_index,
+                noFollow: page.value?.seo_no_follow,
+                socialImage: page.value?.social_image,
+                socialTitle: page.value?.social_title,
+                socialDescription: page.value?.social_description,
+            });
         }
     });
 </script>

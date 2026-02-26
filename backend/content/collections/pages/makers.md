@@ -4,7 +4,7 @@ blueprint: page
 title: Makers
 description: 'De makers van Huis Salomon zijn ieder op hun eigen manier, eigen plek en eigen onderzoek gericht op het stimuleren van professionele twijfel. De verhalen die ze ontdekken worden gedeeld in artistieke vormen en omgezet in trainingen waarin medemenselijkheid en radicale empathie centraal staan.'
 updated_by: ec4ee5ce-7386-4d71-852e-4b01c42ebe1d
-updated_at: 1770979102
+updated_at: 1772006869
 blocks:
   -
     id: ml3asc9k
@@ -32,4 +32,9 @@ blocks:
     type: cta
     enabled: true
 color: darkgreen
+seo_title: 'Dit is de makers SEO titel'
+seo_description: 'Dit is makers SEO omschrijving'
+social_title: 'Dit is makers social titel'
+social_description: 'Dit is makers social omschrijving'
+social_image: albert.jpg
 ---

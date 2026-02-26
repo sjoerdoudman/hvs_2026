@@ -16,6 +16,20 @@
     const ui = useUIStore();
     const { updateTheme } = ui;
 
+    watchEffect(() => {
+        if (project.value) {
+            useMetaData({
+                title: project.value?.seo_title || project.value?.title,
+                description: project.value?.seo_description || project.value?.description,
+                noIndex: project.value?.seo_no_index,
+                noFollow: project.value?.seo_no_follow,
+                socialImage: project.value?.social_image,
+                socialTitle: project.value?.social_title,
+                socialDescription: project.value?.social_description,
+            });
+        }
+    });
+
     onMounted(() => {
         updateTheme('darkgreen');
     });

@@ -30,3 +30,11 @@ tabs:
               type: slug
               localizable: true
               validate: 'max:200'
+  seo:
+    display: SEO
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            import: seo

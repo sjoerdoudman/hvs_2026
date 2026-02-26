@@ -21,6 +21,21 @@
     const homePage = computed(() => pages.value?.find((page: any) => page.slug === 'home'))
     // console.log('homepage',homePage.value);
 
+    watchEffect(() => {
+        if (homePage.value) {
+            updateTheme(homePage.value?.color?.value || 'darkblue');
+            useMetaData({
+                title: homePage.value?.seo_title || homePage.value?.title,
+                description: homePage.value?.seo_description || homePage.value?.description,
+                noIndex: homePage.value?.seo_no_index,
+                noFollow: homePage.value?.seo_no_follow,
+                socialImage: homePage.value?.social_image,
+                socialTitle: homePage.value?.social_title,
+                socialDescription: homePage.value?.social_description,
+            });
+        }
+    });
+
     onMounted(() => {
         updateTheme('darkblue');
         toggleHome(true);

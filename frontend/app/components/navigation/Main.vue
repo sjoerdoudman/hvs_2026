@@ -62,7 +62,6 @@
         if (globals.value) {
             // filter the global with handle site_settings return
             settings.value = globals.value.filter((global: any) => global.handle === 'site_settings')[0]
-            console.log(settings.value);
         }
     })
 </script>

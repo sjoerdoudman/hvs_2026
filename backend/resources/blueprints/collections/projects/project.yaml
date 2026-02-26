@@ -59,3 +59,11 @@ tabs:
               type: entries
               display: Makers
               create: false
+  seo:
+    display: SEO
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            import: seo

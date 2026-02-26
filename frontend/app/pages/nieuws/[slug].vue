@@ -16,6 +16,20 @@
     const ui = useUIStore();
     const { updateTheme } = ui;
 
+    watchEffect(() => {
+        if (post.value) {
+            useMetaData({
+                title: post.value?.seo_title || post.value?.title,
+                description: post.value?.seo_description || post.value?.description,
+                noIndex: post.value?.seo_no_index,
+                noFollow: post.value?.seo_no_follow,
+                socialImage: post.value?.social_image,
+                socialTitle: post.value?.social_title,
+                socialDescription: post.value?.social_description,
+            });
+        }
+    });
+
     onMounted(() => {
         updateTheme('darkpurple');
     });

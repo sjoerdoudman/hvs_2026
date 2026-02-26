@@ -87,3 +87,11 @@ tabs:
                 - makers
               type: entries
               display: Makers
+  seo:
+    display: SEO
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            import: seo
