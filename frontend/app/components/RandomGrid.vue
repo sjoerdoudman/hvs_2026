@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-12 gap-x-12 gap-y-24">
+  <div class="grid md:grid-cols-12 gap-x-12 lg:gap-y-24">
     <div
       v-for="(item, i) in layout"
       :key="item.image.id"

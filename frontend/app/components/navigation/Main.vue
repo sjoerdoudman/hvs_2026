@@ -1,11 +1,11 @@
 <template>
     <div v-if="isActive && !loading"  id="navMain" class="fixed w-full h-screen  text-theme-darkgreen z-40">
-        <div :class="[ isVisible ? 'max-h-screen' : 'max-h-0' ]" class="absolute w-full h-full left-0 top-0 overflow-hidden bg-theme-lightpink duration-300"></div>
-        <div class="relative container--lg w-full h-full flex items-center">
-            <ul class="flex-1 flex flex-col py-double-space">
+        <div :class="[ isVisible ? 'max-h-dvh' : 'max-h-0' ]" class="absolute w-full h-full left-0 top-0 overflow-hidden bg-theme-lightpink duration-300"></div>
+        <div class="relative container--lg w-full h-full flex items-center pb-12">
+            <ul class="flex-1 flex flex-col gap-double-space py-double-space">
                 <li v-for="(link, index) in menu" :key="link.id" :class="[ isVisible ? 'opacity-100' : 'opacity-0 translate-y-2' ]" class="text-center duration-300">
-                    <nuxt-link :to="link.page.url" class="inline-block duration-200 hover:-translate-y-1 focus:-translate-y-1 focus:outline-none" :class="[ index == menu.length - 1 ? 'h2' : 'h1' ]">
-                        {{ link.page.title }}
+                    <nuxt-link :to="link.page.url" class="inline-block duration-200 hover:-translate-y-1 focus:-translate-y-1 focus:outline-none leading-none" :class="[ index == menu.length - 1 ? 'h2' : 'h1' ]">
+                        {{ $softHyphen(link.page.title) }}
                     </nuxt-link>
                 </li>
             </ul>

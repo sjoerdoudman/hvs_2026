@@ -1,5 +1,5 @@
 <template>
-    <div ref="heroRef" class="relative w-full min-h-[250vh] overflow-y-hidden mb-sextuple-space">
+    <div ref="heroRef" class="relative w-full min-h-[250dvh] md:min-h-[250dvh] overflow-hidden mb-sextuple-space">
         <div ref="canvasRef" class="absolute z-10 w-full h-full flex items-end justify-center bg-black">
             <svg
                 width="100"
@@ -165,49 +165,6 @@
             });
         }
     }
-
-    // const images = [
-    //     {
-    //         id: 1,
-    //         src: '/img/home-1.jpg',
-    //         alt: 'A red rose on a white background'
-    //     },
-    //     {
-    //         id: 2,
-    //         src: '/img/home-2.jpg',
-    //         alt: 'A red rose on a white background'
-    //     },
-    //       {
-    //         id: 3,
-    //         src: '/img/home-3.jpg',
-    //         alt: 'A red rose on a white background'
-    //     },
-    //       {
-    //         id: 4,
-    //         src: '/img/home-4.jpg',
-    //         alt: 'A red rose on a white background'
-    //     },
-    //      {
-    //         id: 5,
-    //         src: '/img/home-5.jpg',
-    //         alt: 'A red rose on a white background'
-    //     },
-    //     {
-    //         id: 1,
-    //         src: '/img/home-1.jpg',
-    //         alt: 'A red rose on a white background'
-    //     },
-    //      {
-    //         id: 2,
-    //         src: '/img/home-2.jpg',
-    //         alt: 'A red rose on a white background'
-    //     },
-    //      {
-    //         id: 3,
-    //         src: '/img/home-3.jpg',
-    //         alt: 'A red rose on a white background'
-    //     },
-    // ]
 
     onMounted(() => {
         initTransition()

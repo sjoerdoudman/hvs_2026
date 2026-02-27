@@ -1,7 +1,7 @@
 <template>
     <!-- Updates Block -->
     <section v-if="filteredNews.length > 0" class="last:pb-triple-space">
-        <div class="container--lg flex flex-col gap-triple-space">
+        <div class="container--lg flex flex-col gap-double-space md:gap-triple-space">
             <div class="title-block">
                 <h2 class="uppercase font-bold" v-text="`Updates`"></h2>
             </div>

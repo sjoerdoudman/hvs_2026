@@ -1,7 +1,7 @@
 <template>
     <section class="flex flex-col gap-quadruple-space last:mb-sextuple-space">
         <div class="container--lg flex flex-col gap-triple-space">
-            <div class="grid grid-cols-2 gap-double-space">
+            <div class="grid md:grid-cols-2 gap-double-space">
                 <figure class="flex flex-col gap-single-space">
                     <ElementsImage v-if="data.image" :width="'600'" :height="'600'" :url="data.image.url" :alt="data.image.alt"></ElementsImage>
                 </figure>

@@ -16,7 +16,7 @@
     const ui = useUIStore();
     const { updateTheme } = ui;
 
-     watchEffect(() => {
+    watchEffect(() => {
         if (maker.value) {
             useMetaData({
                 title: maker.value?.seo_title || maker.value?.title,

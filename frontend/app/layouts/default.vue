@@ -8,7 +8,7 @@
             </div>
         </div>
     </div>
-    <Footer ref="footer" class="fixed w-full left-0 bottom-0" />
+    <Footer ref="footer" class="lg:fixed w-full left-0 bottom-0" />
 </template>
 
 <script setup lang="ts">
@@ -28,6 +28,21 @@
         const sh = document.documentElement?.scrollHeight || 0;
         const sy = window.scrollY || 0;
         const wh = window.innerHeight || 0;
+        const ww = window.innerWidth || 0;
+
+        console.log(sh, sy, wh)
+
+        if (ww < 1024) {
+            const f = footer.value?.$el?.offsetHeight || 0
+            if (sh < sy + f + 70) {
+                footerIsFocusable.value = true
+                showHeader.value = false
+            } else {
+                footerIsFocusable.value = false
+                showHeader.value = true
+            }
+            return
+        }
 
         if (sy > sh - wh) {
             toggleFooterIsFocusable(true)
@@ -53,11 +68,12 @@
     };
 
     onMounted(() => {
+        window.addEventListener('scroll', onScroll);
         if (!footer.value) return
+        if (window.innerWidth < 1024) return;
         fh.value = footer.value?.$el.offsetHeight || 0;
         // add lime color to body
         document.body.classList.add(`bg-theme-${theme.value}`)
-        window.addEventListener('scroll', onScroll);
     })
     onUnmounted(() => {
         window.removeEventListener('scroll', onScroll);

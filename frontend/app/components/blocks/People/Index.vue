@@ -5,7 +5,7 @@
             <div class="title-block">
                 <h2 class="text-highlight uppercase font-bold" v-html="data.title"></h2>
             </div>
-            <div class="grid grid-cols-4 gap-x-single-space gap-y-triple-space">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-double-space gap-y-triple-space">
                 <div v-for="item in data.items" class="flex flex-col gap-3">
                     <div class="flex flex-col gap-3">
                         <figure class="w-full aspect-4/3">

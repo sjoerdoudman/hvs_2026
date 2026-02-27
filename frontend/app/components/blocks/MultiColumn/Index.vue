@@ -1,7 +1,7 @@
 <template>
     <section class="w-full">
         <div class="container--lg w-full flex flex-col gap-triple-space">
-            <div :class="`grid-cols-${data.cols}`" class="grid gap-triple-space">
+            <div :class="`lg:grid-cols-${data.cols}`" class="grid gap-triple-space">
                 <div v-for="item in data.items" class="col-span-1 flex flex-col gap-single-space">
                     <div class="flex-1 flex flex-col gap-2">
                         <h3 class="text-highlight text-[2.25rem]" v-html="item.title"></h3>

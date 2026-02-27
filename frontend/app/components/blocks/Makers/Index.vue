@@ -1,7 +1,7 @@
 <template>
     <section class="flex flex-col gap-triple-space w-full">
         <div class="container--lg w-full">
-            <div :class="[ data.size.value == 'small' ? 'grid-cols-4 gap-6' : 'grid-cols-1 gap-triple-space' ]" class="grid">
+            <div :class="[ data.size.value == 'small' ? 'md:grid-cols-2 lg:grid-cols-4 gap-double-space' : 'grid-cols-1 gap-triple-space' ]" class="grid">
                 <TeaserMaker
                     v-for="(item) in data.items"
                     :size="data.size.value"

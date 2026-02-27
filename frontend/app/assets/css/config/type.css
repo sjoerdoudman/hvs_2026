@@ -26,6 +26,7 @@
 
     blockquote p {
         font-family: 'Soehne breit', sans-serif;
+        @apply text-[calc(1.25rem+2.25vw+2.25vh)] font-bold;
     }
 
 
@@ -38,7 +39,7 @@
     }
 
     .display {
-        @apply text-[calc(1.5rem+2.5vw+2.5vh)] uppercase;
+        @apply text-4xl md:text-[calc(1.5rem+2.5vw+2.5vh)] uppercase;
     }
 
     h1, .h1 {
@@ -46,7 +47,7 @@
     }
 
     h2 , .h2{
-        @apply text-[calc(1.5rem+1.5vw)] uppercase font-bold;
+        @apply text-[calc(1rem+1vw+1vh)] uppercase font-bold;
     }
 
     h3, .h3 {

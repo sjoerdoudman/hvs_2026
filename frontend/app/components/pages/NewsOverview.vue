@@ -5,7 +5,7 @@
             <!-- Intro Block -->
             <Intro :description="data.description"></Intro>
             <!-- News Block -->
-            <BlocksNews :data="{ title: 'Het laatste nieuws', maxItems: 2, pagination: true }"/>
+            <BlocksNews :data="{ title: 'Het laatste nieuws', maxItems: 6, pagination: true }"/>
         </div>
     </main>
 </template>

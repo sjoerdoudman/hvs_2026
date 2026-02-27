@@ -25,20 +25,35 @@
 .bg-theme-darkgreen {
   @apply bg-theme-darkgreen;
 }
+.from-theme-darkgreen\/50 {
+  @apply from-theme-darkgreen/50;
+}
 .text-theme-darkgreen {
   @apply text-theme-darkgreen;
 }
+
 .bg-theme-darkblue {
   @apply bg-theme-darkblue;
 }
+.from-theme-darkblue\/50 {
+  @apply from-theme-darkblue/50;
+}
+
 .bg-theme-darkbrown {
   @apply bg-theme-darkbrown;
+}
+.from-theme-darkbrown\/50 {
+  @apply from-theme-darkblue/50;
 }
 .text-theme-darkbrown {
   @apply text-theme-darkbrown;
 }
+
 .bg-theme-darkpurple {
   @apply bg-theme-darkpurple;
+}
+.from-theme-darkpurple\/50 {
+  @apply from-theme-darkpurple/50;
 }
 .text-theme-darkpurple {
   @apply text-theme-darkpurple;

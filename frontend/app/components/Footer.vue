@@ -4,16 +4,23 @@
         :aria-hidden="footerIsFocusable ? 'false' : 'true'"
         :tabindex="footerIsFocusable ? '0' : '-1'"
         :class="[ hideFooter ? 'hidden' : '' ]"
-        class="flex flex-col gap-sextuple-space"
+        class="flex flex-col gap-sextuple-space bg-theme-lime"
     >
         <div class="container--lg w-full">
-           <div class="grid grid-cols-4 pt-double-space">
-                <nav class="col-span-1">
+           <div class="grid md:grid-cols-2 lg:grid-cols-4 pt-double-space gap-double-space">
+                <div class="md:col-span-2 min-h-50 lg:order-last">
+                    <p class="content-column !text-[1.85rem]" v-html="settings?.site_description"></p>
+                </div>
+                <nav class="md:col-span-1">
                    <ul>
-                        <li v-for="link in mainmenu" :key="link.id"><nuxt-link :to="link.page.url" class="text-[1.25rem] font-bold uppercase hover:text-theme-darkblue focus:text-theme-darkblue">{{ link.page.title }}</nuxt-link></li>
+                        <li v-for="link in mainmenu" :key="link.id">
+                            <nuxt-link :to="link.page.url" class="text-[1.25rem] font-bold uppercase hover:text-theme-darkblue focus:text-theme-darkblue">
+                                {{ $softHyphen(link.page.title) }}
+                            </nuxt-link>
+                        </li>
                    </ul>
                 </nav>
-                <div class="col-span-1 flex flex-col gap-single-space">
+                <div class="md:col-span-1 flex flex-col gap-single-space">
                     <div v-if="settings" class="flex flex-col gap-single-space">
                         <p v-if="settings.address" class="whitespace-pre-line" v-html="settings.address"></p>
                         <p>
@@ -28,9 +35,6 @@
                             </nuxt-link>
                         </li>
                     </ul>
-                </div>
-                <div class="col-span-2 min-h-[350px]">
-                    <p class="content-column !text-[1.85rem]" v-html="settings?.site_description"></p>
                 </div>
            </div>
         </div>

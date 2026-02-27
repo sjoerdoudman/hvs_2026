@@ -1,14 +1,14 @@
 <template>
-    <main v-if="data" class="pt-35 flex flex-col gap-quadruple-space min-h-[200vh]">
+    <main v-if="data" class="pt-25 lg:pt-35 flex flex-col gap-double-space md:gap-quadruple-space lg:min-h-[200vh]">
         <!-- Title Block -->
         <section class="container--lg w-full">
             <div class="border-t border-white"></div>
-            <div class="flex flex-col items-center pt-triple-space">
+            <div class="flex flex-col lg:items-center pt-triple-space gap-single-space">
                 <div class="flex gap-4">
                     <span v-if="categories" class="meta uppercase font-semibold text-theme-lime">{{ categories }}</span>
                     <span class="meta uppercase font-semibold text-highlight">{{ month }} {{ year }}</span>
                 </div>
-                <h1 class="soehne !normal-case" v-html="data.title"></h1>
+                <h1 class="soehne !normal-case leading-tight" v-html="data.title"></h1>
             </div>
         </section>
 

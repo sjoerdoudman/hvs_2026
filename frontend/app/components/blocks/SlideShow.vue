@@ -1,7 +1,7 @@
 <template>
     <section ref="containerRef" class="relative bg-theme-offblack py-double-space w-full overflow-x-hidden">
         <div class="relative container--lg">
-            <button ref="navPrevRef" class="swiper-button-prev custom-prev !left-triple-space bg-lime hover:scale-105 focus:scale-105 duration-100" aria-label="Previous slide">
+            <button ref="navPrevRef" class="swiper-button-prev !hidden !md:flex custom-prev !left-triple-space bg-lime hover:scale-105 focus:scale-105 duration-100" aria-label="Previous slide">
               <span class="material-symbols-outlined">arrow_back</span>
             </button>
             <div ref="swiperRef" class="slider aspect-16/9">
@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div ref="navigationRef" class="swiper-pagination"></div>
-            <button ref="navNextRef" class="swiper-button-next custom-next !right-triple-space bg-lime hover:scale-105 focus:scale-105 duration-100" aria-label="Next slide">
+            <button ref="navNextRef" class="swiper-button-next !hidden !md:flex custom-next !right-triple-space bg-lime hover:scale-105 focus:scale-105 duration-100" aria-label="Next slide">
               <span class="material-symbols-outlined">arrow_forward</span>
             </button>
         </div>

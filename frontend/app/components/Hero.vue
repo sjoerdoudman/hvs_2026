@@ -1,6 +1,6 @@
 <template>
     <div ref="heroRef" class="w-full h-200">
-        <div ref="canvasRef" class="fixed z-30 left-0 top-0 w-screen h-screen flex items-center justify-center pointer-events-none">
+        <div ref="canvasRef" class="fixed z-30 left-0 top-0 w-screen h-dvh flex items-center justify-center pointer-events-none overflow-hidden">
             <svg
                 width="100"
                 height="100"
@@ -119,7 +119,7 @@
                 gsap.fromTo(firstTriangleRef.value, {
                     attr: { points: firstPointStepOne },
                 },{
-                    duration: 1.5,
+                    duration: .5,
                     ease: 'power2.inOut',
                     attr: { points: firsPointsOrigin.value },
                 });
@@ -127,7 +127,7 @@
                 gsap.fromTo(secondTriangleRef.value, {
                     attr: { points: secondPointStepOne },
                 }, {
-                    duration: 1.5,
+                    duration: .5,
                     ease: 'power2.inOut',
                     attr: { points: secondPointsOrigin.value },
                 });

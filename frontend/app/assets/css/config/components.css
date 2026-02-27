@@ -21,7 +21,7 @@
     }
 
     .swiper-pagination {
-        @apply !bottom-double-space
+        @apply !bottom-single-space lg:!bottom-double-space
     }
     .swiper-pagination-bullet {
         @apply !bg-theme-lime

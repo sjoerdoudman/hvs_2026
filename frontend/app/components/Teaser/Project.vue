@@ -1,7 +1,7 @@
 <template>
      <nuxt-link to="/projecten/salomonsoordeel" class="block hover:-translate-y-1 focus:-translate-y-1 transition-all duration-300">
         <span class="sr-only" v-text="data.title"></span>
-        <div class="grid grid-cols-2 gap-double-space" aria-hidden>
+        <div class="grid md:grid-cols-2 gap-double-space" aria-hidden>
             <figure class="aspect-square">
                 <ElementsImage :width="'600'" :height="'600'" :url="data.image.url" :alt="data.image.alt"></ElementsImage>
             </figure>

@@ -1,11 +1,11 @@
 <template>
     <nuxt-link to="/nieuws/ilay-bij-kunststof-radio">
         <span class="sr-only">{{ data.title }}</span>
-        <div aria-hidden class="grid grid-cols-12 gap-double-space pb-single-space">
+        <div aria-hidden class="grid md:grid-cols-12 gap-single-space md:gap-double-space pb-single-space">
             <div class="col-span-3">
                 <small class="meta uppercase font-semibold text-theme-lime">{{ date }}</small>
             </div>
-            <div class="col-span-7 flex flex-col gap-single-space group" @mouseenter="openItem = !openItem" @mouseleave="openItem = !openItem">
+            <div class="col-span-7 flex flex-col md:gap-single-space group" @mouseenter="openItem = !openItem" @mouseleave="openItem = !openItem">
                 <h3 class="leading-none">{{ data.title }}</h3>
                 <div :class="[ openItem ? 'max-h-screen lg:max-h-125 duration-700 delay-200' : 'max-h-0 duration-200' ]" class="overflow-hidden">
                     <p v-text="data.description"></p>

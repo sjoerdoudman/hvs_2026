@@ -15,8 +15,8 @@
         </div>
 
         <!-- Large Teaser -->
-        <div v-else class="w-full grid grid-cols-2 gap-triple-space">
-            <figure v-if="data.image" class="w-full aspect-3/4 overflow-hidden order-last">
+        <div v-else class="w-full grid md:grid-cols-2 gap-triple-space">
+            <figure v-if="data.image" class="w-full aspect-3/4 overflow-hidden md:order-last">
                 <ElementsImage :width="'600'" :height="'600'" :url="data.image.url" :alt="data.image.alt"></ElementsImage>
             </figure>
             <div class="flex flex-col gap-double-space">

@@ -25,7 +25,7 @@
         <div class="container--lg relative z-2 pt-[30vh] flex items-center">
             <blockquote class="relative z-2">
                 <div class="content-column">
-                    <p class="font-semibold !text-[3rem] text-theme-darkblue" v-html="data?.quote"></p>
+                    <p class="font-semibold text-theme-darkblue" v-html="data?.quote"></p>
                 </div>
             </blockquote>
         </div>

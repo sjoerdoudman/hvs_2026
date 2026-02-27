@@ -1,10 +1,10 @@
 <template>
     <section v-if="data" class="last:mb-quadruple-space">
-        <div class="container--lg flex flex-col gap-triple-space">
+        <div class="container--lg flex flex-col gap-double-space md:gap-triple-space">
             <div class="title-block">
                 <h2 class="text-highlight uppercase font-bold" v-html="data.title"></h2>
             </div>
-            <div class="grid grid-cols-2 gap-x-single-space gap-y-triple-space">
+            <div class="grid md:grid-cols-2 gap-x-single-space gap-y-triple-space">
                 <TeaserNews v-for="item in paginatedNews" :data="item"/>
             </div>
 
@@ -64,7 +64,7 @@
     // Calculate items per page
     const itemsPerPage = computed(() => {
         if (!props.data?.pagination) return 4; // Always show 4 if no pagination
-        return props.data?.maxItems || 2; // Use maxItems if pagination enabled, default 2
+        return props.data?.maxItems || 6; // Use maxItems if pagination enabled, default 2
     });
 
     // Calculate total pages

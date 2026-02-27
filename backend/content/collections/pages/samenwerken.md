@@ -1,7 +1,7 @@
 ---
 id: eaa0cc4c-33e2-4dc8-aa5e-2ddd4bcacccf
 blueprint: page
-title: Samenwerken
+title: Samen~werken
 description: 'De makers van Huis Salomon zijn ieder op hun eigen manier, eigen plek en eigen onderzoek gericht op het stimuleren van professionele twijfel. De verhalen die ze ontdekken worden gedeeld in artistieke vormen en omgezet in trainingen waarin medemenselijkheid en radicale empathie centraal staan.'
 blocks:
   -
@@ -97,7 +97,7 @@ blocks:
     enabled: true
   -
     id: ml3c8mpp
-    title: Woonkamervoorstellingen
+    title: Woonkamer~voorstellingen
     description:
       -
         type: paragraph
@@ -160,6 +160,6 @@ blocks:
         type: button
         enabled: true
 updated_by: ec4ee5ce-7386-4d71-852e-4b01c42ebe1d
-updated_at: 1770964558
+updated_at: 1772171323
 color: darkblue
 ---
