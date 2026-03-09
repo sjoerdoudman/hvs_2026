@@ -5,7 +5,7 @@ image: home-3.jpg
 title: Salomons~oordeel
 description: 'Salomonsoordeel is een intense theatrale ervaring waarbij het abstracte politieke debat over migratiebeleid invoelbare proporties krijgt.'
 updated_by: ec4ee5ce-7386-4d71-852e-4b01c42ebe1d
-updated_at: 1770979799
+updated_at: 1773060526
 blocks:
   -
     id: mlkrmoyq
@@ -105,4 +105,5 @@ year: 2020-2022
 running: true
 makers:
   - 926572bd-cf0b-4d8c-bf7c-649bb7311724
+  - 828b662e-596e-42aa-8677-ce99c2aeaf66
 ---

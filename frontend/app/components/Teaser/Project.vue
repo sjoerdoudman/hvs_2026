@@ -1,5 +1,5 @@
 <template>
-     <nuxt-link to="/projecten/salomonsoordeel" class="block hover:-translate-y-1 focus:-translate-y-1 transition-all duration-300">
+     <nuxt-link :to="data.url" class="block hover:-translate-y-1 focus:-translate-y-1 transition-all duration-300">
         <span class="sr-only" v-text="data.title"></span>
         <div class="grid md:grid-cols-2 gap-double-space" aria-hidden>
             <figure class="aspect-square">
@@ -8,6 +8,7 @@
             <div class="flex flex-col gap-double-space">
                 <div>
                     <small class="meta uppercase font-semibold" v-text="data.year"></small>
+                    {{ data.url }}
                     <h3 class="uppercase leading-none h1" v-html="$softHyphen(data.title)"></h3>
                 </div>
                 <div class="flex flex-col gap-single-space">

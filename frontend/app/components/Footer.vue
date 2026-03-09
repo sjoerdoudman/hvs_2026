@@ -8,7 +8,7 @@
     >
         <div class="container--lg w-full">
            <div class="grid md:grid-cols-2 lg:grid-cols-4 pt-double-space gap-double-space">
-                <div class="md:col-span-2 min-h-50 lg:order-last">
+                <div class="md:col-span-2 min-h-60 lg:order-last">
                     <p class="content-column !text-[1.85rem]" v-html="settings?.site_description"></p>
                 </div>
                 <nav class="md:col-span-1">
@@ -39,7 +39,7 @@
            </div>
         </div>
         <nuxt-link to="/" class="flex items-center justify-center py-double-space">
-            <span class="sr-only">Huis Salomon home</span>
+            <span class="sr-only">Huis Salomon homepage</span>
             <Logo
                 aria-hidden
                 class="w-[50vw] h-auto fill-current"
