@@ -1,10 +1,10 @@
 <template>
-    <section ref="containerRef" class="relative bg-theme-offblack py-double-space w-full overflow-x-hidden">
+    <section ref="containerRef" class="relative bg-black py-double-space w-full overflow-x-hidden">
         <div class="relative container--lg">
             <button ref="navPrevRef" class="swiper-button-prev !hidden !md:flex custom-prev !left-triple-space bg-lime hover:scale-105 focus:scale-105 duration-100" aria-label="Previous slide">
               <span class="material-symbols-outlined">arrow_back</span>
             </button>
-            <div ref="swiperRef" class="slider aspect-16/9">
+            <div ref="swiperRef" class="slider aspect-video">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" v-for="slide in data.slides">
                         <figure class="h-full flex justify-center align-items-center">
@@ -24,7 +24,7 @@
             @enter="enter"
             @leave="leave"
         >
-            <p v-if="ifHasCaption" class="text-twhite text-center mt-single-space uppercase">
+            <p v-if="ifHasCaption" class="text-[#b6b6b6] text-center mt-single-space">
                 <small v-text="data.slides[activeSlide]?.caption || '&nbsp;'"></small>
             </p>
         </transition>
@@ -65,7 +65,6 @@
         if (!container) return;
 
         const slidesPerViewMobile = 1.2;
-
         const paginationEl = navigationRef.value;
         const navPrevEl = navPrevRef.value;
         const navNextEl = navNextRef.value;
@@ -87,7 +86,7 @@
             },
             breakpoints: {
                 768: {
-                    slidesPerView: 1,
+                    slidesPerView: 1.2,
                 },
             },
             watchSlidesProgress: true,

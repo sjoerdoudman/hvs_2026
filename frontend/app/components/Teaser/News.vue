@@ -3,8 +3,9 @@
         <span class="sr-only" v-text="data.title"></span>
         <div aria-hidden class="flex flex-col gap-double-space">
             <div class="flex flex-col gap-single-space">
-                <div class="flex gap-4">
+                <div class="flex gap-2">
                     <span v-if="categories" class="meta uppercase font-semibold text-theme-lime">{{ categories }}</span>
+                    <span v-if="categories" class="meta uppercase font-semibold text-highlight">-</span>
                     <span class="meta uppercase font-semibold text-highlight">{{ month }} {{ year }}</span>
                 </div>
                 <figure v-if="data.image" class="w-full aspect-4/3 overflow-hidden">
@@ -13,7 +14,7 @@
             </div>
             <div class="flex flex-col gap-2">
                 <h3 class="text-highlight leading-none" v-html="data.title"></h3>
-                <p v-text="data.description"></p>
+                <!-- <p v-text="data.description"></p> -->
             </div>
         </div>
     </nuxt-link>

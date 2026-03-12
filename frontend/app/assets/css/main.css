@@ -15,11 +15,11 @@
   --color-theme-lime: #CEFA5F;
   --color-theme-offblack: #1E1E1E;
   --color-theme-beige: #E2C9BD;
-  --spacing-single-space: calc(.4vw + .4vh + .6rem);
-  --spacing-double-space: calc(.8vw + .8vh + 1.2rem);
-  --spacing-triple-space: calc(1.2vw + 1.2vh + 1.8rem);
-  --spacing-quadruple-space: calc(1.6vw + 1.6vh + 2.4rem);
-  --spacing-sextuple-space: calc(2.4vw + 2.4vh + 3.6rem);
+  --spacing-single-space: calc(.3vw + .3vh + .5rem);
+  --spacing-double-space: calc(.6vw + .6vh + 1rem);
+  --spacing-triple-space: calc(0.9vw + 0.9vh + 1.5rem);
+  --spacing-quadruple-space: calc(1.2vw + 1.2vh + 2rem);
+  --spacing-sextuple-space: calc(1.8vw + 1.8vh + 3rem);
 }
 
 .bg-theme-darkgreen {

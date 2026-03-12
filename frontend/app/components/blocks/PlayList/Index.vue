@@ -1,6 +1,6 @@
 <template>
     <!-- Updates Block -->
-    <section class="last:pb-triple-space">
+    <section v-if="filteredEvents.length > 0" class="last:pb-triple-space">
         <div class="container--lg flex flex-col gap-triple-space">
             <div class="title-block">
                 <h2 class="uppercase font-bold">Agenda</h2>

@@ -18,6 +18,13 @@
             url('../../fonts/soehne-breit-fett.woff2') format('woff2');
         font-display: swap;
     }
+     @font-face {
+        font-family: 'Soehne mono';
+        src:
+            url('../../fonts/soehne-mono-buch.woff2') format('woff2');
+        font-display: swap;
+        font-weight: 400;
+    }
 
     body {
         font-family: 'Soehne', sans-serif;
@@ -26,7 +33,7 @@
 
     blockquote p {
         font-family: 'Soehne breit', sans-serif;
-        @apply text-[calc(1.25rem+2.25vw+2.25vh)] font-bold;
+        @apply text-[calc(1.25rem+2.25vw+2.25vh)] font-bold leading-tight;
     }
 
 
@@ -43,7 +50,7 @@
     }
 
     h1, .h1 {
-        @apply text-[calc(1.25rem+2.25vw+2.25vh)] uppercase;
+        @apply text-[calc(1.25rem+2.25vw+2.25vh)] uppercase leading-tight;
     }
 
     h2 , .h2{
@@ -59,11 +66,11 @@
     }
 
     small, .meta {
+        font-family: 'Soehne mono', sans-serif;
         @apply text-[calc(.45rem+.45vw+.45vh)]
     }
 
-    .soehne,
-    .meta {
+    .soehne {
         font-family: 'Soehne', sans-serif;
     }
 

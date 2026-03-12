@@ -10,15 +10,23 @@
                 <div ref="barThree" :class="menuOpen ? 'bg-theme-darkgreen top-1/2 rotate-45' : 'bg-highlight top-full'" class="absolute left-0 -translate-y-1/2 w-0 h-0.75 duration-300"></div>
             </button>
             <div :class="[ isHome && !isEndHeroHome && !menuOpen ? 'w-screen h-screen' : 'w-full h-full' ]" class="absolute top-0 left-0 flex items-center justify-center duration-500">
-                <nuxt-link to="/" class="relative inline-block focus:outline-none focus:scale-95 hover:scale-95 duration-300">
-                    <div v-if="isHome" :class="menuOpen || isEndHeroHome ? 'opacity-0' : 'opacity-100'" class="absolute pointer-events-none left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-screen h-screen bg-radial from-black/20 to-transparent duration-200"></div>
+                <h1 v-if="isHome" class="relative inline-block">
+                    <div :class="menuOpen || isEndHeroHome ? 'opacity-0' : 'opacity-100'" class="absolute pointer-events-none left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-screen h-screen bg-radial from-black/20 to-transparent duration-200"></div>
                     <Logo
                         :class="[
                             menuOpen ? 'fill-theme-darkgreen' : 'fill-highlight',
-                            isHome && !isEndHeroHome && !menuOpen ? '!fill-white' : '',
-                            isHome && !isEndHeroHome && !menuOpen ? 'w-[70vw] md:w-[50vw] h-[20vh] md:h-[15vw] -translate-y-5' : 'w-60 h-10'
+                            !isEndHeroHome && !menuOpen ? '!fill-white' : '',
+                            !isEndHeroHome && !menuOpen ? 'w-[70vw] md:w-[50vw] h-[20vh] md:h-[15vw] -translate-y-5' : 'w-60 h-10'
                         ]"
                         class="duration-500">
+                    </Logo>
+                </h1>
+                <nuxt-link v-else to="/" aria-label="Naar de homepage" class="relative inline-block focus:outline-none focus:scale-95 hover:scale-95 duration-300">
+                    <Logo
+                        :class="[
+                            menuOpen ? 'fill-theme-darkgreen' : 'fill-highlight',
+                        ]"
+                        class="duration-500 fill-white w-60 h-10">
                     </Logo>
                 </nuxt-link>
             </div>

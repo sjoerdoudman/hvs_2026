@@ -16,7 +16,7 @@
     .title-block {
         @apply flex flex-col gap-2;
     }
-    .title-block h2, .title-block p {
+    .title-block p {
        @apply !text-[calc(.85rem+.85vw+.85vh)];
     }
 

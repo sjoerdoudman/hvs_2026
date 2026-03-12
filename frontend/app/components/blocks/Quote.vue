@@ -22,14 +22,16 @@
                 </clipPath>
             </defs>
         </svg>
-        <div class="container--lg relative z-2 pt-[30vh] flex items-center">
-            <blockquote class="relative z-2">
-                <div class="content-column">
-                    <p class="font-semibold text-theme-darkblue" v-html="data?.quote"></p>
-                </div>
-            </blockquote>
+        <div class="container--lg relative z-2 pt-[30vh] h-dvh"></div>
+        <div class="fixed pointer-events-none left-0 top-0 w-screen h-screen z-1 maskedImg bg-theme-lightpink w-full aspect-video flex items-center justify-center">
+            <div class="container--lg flex items-center ">
+                <blockquote aria-hidden="true" class="relative z-2">
+                    <div class="content-column">
+                        <p class="font-semibold text-theme-darkblue" v-html="data?.quote"></p>
+                    </div>
+                </blockquote>
+            </div>
         </div>
-        <figure class="fixed pointer-events-none left-0 top-0 w-screen h-screen z-1 maskedImg bg-theme-lightpink w-full aspect-video flex items-center justify-center"></figure>
     </div>
 </template>
 
