@@ -51,7 +51,7 @@
     }
 
     h3, .h3 {
-        @apply text-[calc(.85rem+.85vw+.85vh)] font-bold;
+        @apply text-[calc(.85rem+.85vw+.85vh)] font-normal;
     }
 
     p, .p {
@@ -69,5 +69,9 @@
 
     .breit {
         font-family: 'Soehne breit', sans-serif;
+    }
+
+    .markdown p + p {
+        @apply mt-single-space;
     }
 }

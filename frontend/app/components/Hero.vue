@@ -1,5 +1,5 @@
 <template>
-    <div ref="heroRef" class="w-full h-200">
+    <div ref="heroRef" class="w-full h-screen">
         <div ref="canvasRef" class="fixed z-30 left-0 top-0 w-screen h-dvh flex items-center justify-center pointer-events-none overflow-hidden">
             <svg
                 width="100"
@@ -23,7 +23,7 @@
                     </clipPath>
                 </defs>
             </svg>
-            <figure ref="image" class="maskedImg absolute pointer-events-none top-0 left-0 w-screen h-screen flex items-center justify-center bg-highlight">
+            <figure ref="image" class="maskedImg absolute pointer-events-none left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[105vw] h-[105vw] flex items-center justify-center bg-highlight">
                 <ElementsImage v-if="image" :width="'300'" :height="'400'" :url="image.url" :alt="image.alt"></ElementsImage>
                 <div class="absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <div class="container--sm text-center">

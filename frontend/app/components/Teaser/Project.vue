@@ -8,7 +8,6 @@
             <div class="flex flex-col gap-double-space">
                 <div>
                     <small class="meta uppercase font-semibold" v-text="data.year"></small>
-                    {{ data.url }}
                     <h3 class="uppercase leading-none h1" v-html="$softHyphen(data.title)"></h3>
                 </div>
                 <div class="flex flex-col gap-single-space">
