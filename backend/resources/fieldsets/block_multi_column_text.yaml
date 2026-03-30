@@ -8,6 +8,7 @@ fields:
       max: 4
       type: integer
       display: 'Number of columns'
+      default: '3'
   -
     handle: items
     field:

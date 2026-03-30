@@ -1,6 +1,6 @@
 <template>
-    <div ref="heroRef" class="w-full h-screen">
-        <div ref="canvasRef" class="fixed z-30 left-0 top-0 w-screen h-dvh flex items-center justify-center overflow-hidden" :class="[ scrolled ? 'pointer-events-none' : '' ]">
+    <div ref="heroRef" class="w-full h-screen flex items-end justify-center">
+        <div ref="canvasRef" class="fixed z-30 left-0 top-0 w-screen h-dvh flex items-center justify-center pointer-events-none overflow-hidden">
             <svg
                 width="100"
                 height="100"
@@ -23,11 +23,11 @@
                     </clipPath>
                 </defs>
             </svg>
-            <figure ref="image" class="maskedImg absolute top-0 left-0 w-screen h-screen flex items-center justify-center bg-highlight">
+            <figure ref="image" class="maskedImg absolute pointer-events-none left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[105vw] h-[105vw] flex items-center justify-center bg-highlight">
                 <ElementsImage v-if="image" :width="'300'" :height="'400'" :url="image.url" :alt="image.alt"></ElementsImage>
-                <div class="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div class="container--sm text-center flex flex-col gap-single-space" :class="[`text-theme-${theme}`]">
-                        <h1 class="display text-[calc(1.5rem+2.5vw+2.5vh)] text-current uppercase" v-html="$softHyphen(title)"></h1>
+                <div v-else class="absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div class="container--sm text-center">
+                        <h1 :class="[`text-theme-${theme}`]" class="display text-[calc(1.5rem+2.5vw+2.5vh)] text-current uppercase" v-html="$softHyphen(title)"></h1>
                     </div>
                 </div>
                 <div class="absolute w-full h-auto bottom-double-space flex justify-center">
@@ -39,6 +39,9 @@
                 </div>
             </figure>
         </div>
+        <div class="container--sm text-center pb-sextuple-space">
+            <h1 class="display text-[calc(1.5rem+2.5vw+2.5vh)] text-highlight uppercase" v-html="$softHyphen(title)"></h1>
+        </div>
     </div>
 </template>
 
@@ -48,6 +51,7 @@
     gsap.registerPlugin(ScrollTrigger);
     const ui = useUIStore();
     const { theme } = storeToRefs(ui)
+    const show = ref<boolean>(false)
 
     const props = withDefaults(defineProps<{
         title: string;
@@ -55,8 +59,8 @@
         skew?: number;
         shift?: number
     }>(), {
-        skew: 3,
-        shift: 3
+        skew: 0,
+        shift: 0
     })
 
     const heroRef = ref(null);
@@ -69,40 +73,41 @@
         return `
             -10,0
             1,-10
-            10,${props.skew * 2.85}
+            10,${props.skew * 2}
             0.5,0.5
-            -10,${-props.skew * 4}.5
+            -10,${-props.skew * 3}
         `;
     })
     const secondPointsOrigin = computed(() => {
         return `
             -10,1
-            -10,${-props.skew * 2.85}
+            -10,${-props.skew * 2}
             0.5,0.5
-            10,${props.skew * 4}.5
+            10,${props.skew * 3}
             1,1
         `;
     })
 
     const initTransition = async () => {
+        show.value = true;
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const topAnchorX = 0.5 + props.shift
         const bottomAnchorX = 0.5 - props.shift
 
-        const firstPointStepOne = `
-            -10,0
-            1,-10
-            10,${props.skew * 2.5}
-            0.5,0.5
-            -10,${-props.skew * 3}.5
-        `
-        const secondPointStepOne = `
-            -10,1
-            -10,${-props.skew * 2.5}
-            0.5,0.5
-            10,${props.skew * 3}.5
-            1,1
-        `
+        // const firstPointStepOne = `
+        //     -10,0
+        //     1,-10
+        //     10,${props.skew * 2.5}
+        //     0.5,0.5
+        //     -10,${-props.skew * 3}.5
+        // `
+        // const secondPointStepOne = `
+        //     -10,1
+        //     -10,${-props.skew * 2.5}
+        //     0.5,0.5
+        //     10,${props.skew * 3}.5
+        //     1,1
+        // `
 
         const firstPointStepTwo = `
             ${topAnchorX},-10
@@ -125,21 +130,21 @@
             // only if on top of viewport
             if (window.scrollY < 10) {
                 // animate first triangle
-                gsap.fromTo(firstTriangleRef.value, {
-                    attr: { points: firstPointStepOne },
-                },{
-                    duration: .5,
-                    ease: 'power2.inOut',
-                    attr: { points: firsPointsOrigin.value },
-                });
-                // animate second triangle
-                gsap.fromTo(secondTriangleRef.value, {
-                    attr: { points: secondPointStepOne },
-                }, {
-                    duration: .5,
-                    ease: 'power2.inOut',
-                    attr: { points: secondPointsOrigin.value },
-                });
+                // gsap.fromTo(firstTriangleRef.value, {
+                //     attr: { points: firstPointStepOne },
+                // },{
+                //     duration: .5,
+                //     ease: 'power2.inOut',
+                //     attr: { points: firsPointsOrigin.value },
+                // });
+                // // animate second triangle
+                // gsap.fromTo(secondTriangleRef.value, {
+                //     attr: { points: secondPointStepOne },
+                // }, {
+                //     duration: .5,
+                //     ease: 'power2.inOut',
+                //     attr: { points: secondPointsOrigin.value },
+                // });
             }
 
             gsap.to(firstTriangleRef.value, {

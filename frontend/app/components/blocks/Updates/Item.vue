@@ -1,5 +1,5 @@
 <template>
-    <nuxt-link to="/nieuws/ilay-bij-kunststof-radio">
+    <nuxt-link :to="data.url">
         <span class="sr-only">{{ data.title }}</span>
         <div aria-hidden class="grid md:grid-cols-12 gap-single-space md:gap-double-space pb-single-space">
             <div class="col-span-3">

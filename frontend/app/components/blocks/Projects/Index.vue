@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="py-quadruple-space">
         <!-- Running projects -->
         <div v-if="runningProjects.length > 0" class="bg-highlight py-quadruple-space" :class="[ `text-theme-${theme}` ]">
             <div class="container--lg flex flex-col gap-triple-space">
@@ -17,7 +17,7 @@
         </div>
 
         <!-- Archive projects -->
-        <div v-if="showArchive && archiveProjects.length > 0" class="py-quadruple-space">
+        <div v-if="showArchive && archiveProjects.length > 0" class="pt-triple-space">
             <div class="container--lg flex flex-col gap-triple-space">
                 <div class="title-block">
                     <h2 class="uppercase font-bold">Archief</h2>
