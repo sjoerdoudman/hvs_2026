@@ -9,8 +9,8 @@
                 />
             </div>
         </div>
-        <div class="container--lg w-full">
-            <div v-if="data.buttons" class="flex gap-6 mt-single-space">
+        <div v-if="data.buttons.length > 0" class="container--lg w-full">
+            <div class="flex gap-6 mt-single-space">
                 <ElementsButton v-for="button in data.buttons" :data="button"></ElementsButton>
             </div>
         </div>
