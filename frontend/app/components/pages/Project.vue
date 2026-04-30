@@ -32,7 +32,7 @@
     })
 
     // create random shift and skew from 1 to 3
-    const shift = Math.floor(Math.random() * 3) + 1
-    // create random skew from -5 to 5
-    const skew = Math.floor(Math.random() * 11) - 5
+    const shift = Math.floor(Math.random() * 6) + 3
+    // create random skew from -5 to 5 but no 0
+    const skew = Math.floor(Math.random() * 6) + 3
 </script>

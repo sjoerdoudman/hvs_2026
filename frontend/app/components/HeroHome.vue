@@ -32,7 +32,7 @@
                 <RandomGrid v-if="images" :images="images" :seed="'homepage'"></RandomGrid>
             </div>
             <div ref="titleRef" class="relative z-20 container--md w-full text-center title-block flex justify-center">
-                <p v-text="description"></p>
+                <p class="h3" v-text="description"></p>
             </div>
         </div>
     </div>

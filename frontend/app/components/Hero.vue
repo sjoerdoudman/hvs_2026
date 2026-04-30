@@ -128,7 +128,11 @@
     }
 
     onMounted(() => {
-        initTransition()
+        nextTick(() => {
+            setTimeout(() => {
+                initTransition()
+            }, 50)
+        })
     })
 </script>
 
