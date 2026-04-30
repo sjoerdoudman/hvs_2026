@@ -16,18 +16,15 @@
     .title-block {
         @apply flex flex-col gap-2;
     }
-    .title-block p {
-       @apply !text-[calc(.85rem+.85vw+.85vh)];
-    }
 
     .swiper-pagination {
         @apply !bottom-single-space lg:!bottom-double-space
     }
     .swiper-pagination-bullet {
-        @apply !bg-theme-lime
+        @apply !bg-white
     }
     .swiper-pagination-bullet-active {
-        @apply !bg-white
+        @apply !bg-theme-lime
     }
     .swiper-button-prev, .swiper-button-next {
         @apply !bg-theme-lime !text-black
@@ -36,4 +33,6 @@
     .router-link-active {
         @apply underline underline-offset-[.15em]
     }
+
+    :root { --swiper-pagination-top: calc(100% + 60px);}
 }

@@ -1,5 +1,5 @@
 <template>
-    <section ref="containerRef" class="relative bg-black py-double-space w-full overflow-x-hidden">
+    <section ref="containerRef" class="relative bg-theme-offblack pt-double-space pb-quadruple-space w-full overflow-x-hidden">
         <div class="relative container--lg">
             <button ref="navPrevRef" class="swiper-button-prev !hidden !md:flex custom-prev !left-triple-space bg-lime hover:scale-105 focus:scale-105 duration-100" aria-label="Previous slide">
               <span class="material-symbols-outlined">arrow_back</span>

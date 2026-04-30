@@ -1,5 +1,5 @@
 <template>
-    <div ref="heroRef" class="w-full h-screen flex items-end justify-center">
+    <div ref="heroRef" class="w-full h-dvh flex relative">
         <div ref="canvasRef" class="fixed z-30 left-0 top-0 w-screen h-dvh flex items-center justify-center pointer-events-none overflow-hidden">
             <svg
                 width="100"
@@ -15,7 +15,6 @@
                             ref="firstTriangleRef"
                             :points="firsPointsOrigin"
                         />
-                        <!-- Bottom colored section -->
                         <polygon
                             ref="secondTriangleRef"
                             :points="secondPointsOrigin"
@@ -25,9 +24,9 @@
             </svg>
             <figure ref="image" class="maskedImg absolute pointer-events-none left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[105vw] h-[105vw] flex items-center justify-center bg-highlight">
                 <ElementsImage v-if="image" :width="'300'" :height="'400'" :url="image.url" :alt="image.alt"></ElementsImage>
-                <div v-else class="absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div v-else class="absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
                     <div class="container--sm text-center">
-                        <h1 :class="[`text-theme-${theme}`]" class="display text-[calc(1.5rem+2.5vw+2.5vh)] text-current uppercase" v-html="$softHyphen(title)"></h1>
+                        <h1 aria-hidden :class="[`text-theme-${theme}`]" class="display text-current uppercase" v-html="$softHyphen(title)"></h1>
                     </div>
                 </div>
                 <div class="absolute w-full h-auto bottom-double-space flex justify-center">
@@ -39,8 +38,8 @@
                 </div>
             </figure>
         </div>
-        <div class="container--sm text-center pb-sextuple-space">
-            <h1 class="display text-[calc(1.5rem+2.5vw+2.5vh)] text-highlight uppercase" v-html="$softHyphen(title)"></h1>
+        <div class="container--sm text-center relative">
+            <h1 class="display text-highlight uppercase sticky top-1/2 -translate-y-1/2" v-html="$softHyphen(title)"></h1>
         </div>
     </div>
 </template>
@@ -73,7 +72,7 @@
         return `
             -10,0
             1,-10
-            10,${props.skew * 2}
+            10,${props.skew * 1.65}
             0.5,0.5
             -10,${-props.skew * 3}
         `;
@@ -81,7 +80,7 @@
     const secondPointsOrigin = computed(() => {
         return `
             -10,1
-            -10,${-props.skew * 2}
+            -10,${-props.skew * 1.5}
             0.5,0.5
             10,${props.skew * 3}
             1,1
@@ -89,25 +88,12 @@
     })
 
     const initTransition = async () => {
+        const wh = window.innerHeight;
+        const sh = document.documentElement.scrollHeight;
         show.value = true;
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const topAnchorX = 0.5 + props.shift
         const bottomAnchorX = 0.5 - props.shift
-
-        // const firstPointStepOne = `
-        //     -10,0
-        //     1,-10
-        //     10,${props.skew * 2.5}
-        //     0.5,0.5
-        //     -10,${-props.skew * 3}.5
-        // `
-        // const secondPointStepOne = `
-        //     -10,1
-        //     -10,${-props.skew * 2.5}
-        //     0.5,0.5
-        //     10,${props.skew * 3}.5
-        //     1,1
-        // `
 
         const firstPointStepTwo = `
             ${topAnchorX},-10
@@ -127,33 +113,14 @@
         if (!prefersReducedMotion) {
             if (!firstTriangleRef.value && secondTriangleRef.value) return;
 
-            // only if on top of viewport
-            if (window.scrollY < 10) {
-                // animate first triangle
-                // gsap.fromTo(firstTriangleRef.value, {
-                //     attr: { points: firstPointStepOne },
-                // },{
-                //     duration: .5,
-                //     ease: 'power2.inOut',
-                //     attr: { points: firsPointsOrigin.value },
-                // });
-                // // animate second triangle
-                // gsap.fromTo(secondTriangleRef.value, {
-                //     attr: { points: secondPointStepOne },
-                // }, {
-                //     duration: .5,
-                //     ease: 'power2.inOut',
-                //     attr: { points: secondPointsOrigin.value },
-                // });
-            }
-
             gsap.to(firstTriangleRef.value, {
                 attr: { points: firstPointStepTwo },
                 scrollTrigger: {
                     trigger: heroRef.value,
                     scrub: true,
                     start: 'top 10px',
-                    end: '+=500', // 👈 200px scroll distance
+                    end: `+=${wh/2}`, // 👈 200px scroll distance
+                    once: true
                 },
             });
             gsap.to(secondTriangleRef.value, {
@@ -162,8 +129,9 @@
                     trigger: heroRef.value,
                     scrub: true,
                     start: 'top 10px',
-                    end: '+=500', // 👈 200px scroll distance
-                },
+                    end: `+=${wh/2}`, // 👈 200px scroll distance
+                    once: true
+                }
             });
         }
     }

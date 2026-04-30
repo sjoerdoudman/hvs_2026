@@ -22,15 +22,12 @@
                 </clipPath>
             </defs>
         </svg>
-        <div class="container--lg relative z-2 pt-[30vh] h-dvh"></div>
-        <div class="fixed pointer-events-none left-0 top-0 w-screen h-screen z-1 maskedImg bg-theme-lightpink w-full aspect-video flex items-center justify-center">
-            <div class="container--lg flex items-center ">
-                <blockquote aria-hidden="true" class="relative z-2">
-                    <div class="content-column">
-                        <p class="font-semibold text-theme-darkblue" v-html="data?.quote"></p>
-                    </div>
-                </blockquote>
-            </div>
+        <div class="container--lg relative z-2 py-[20vh] flex items-center justify-center">
+            <blockquote class="relative z-2 pt-[20vh]">
+                <div class="content-column text-center">
+                    <p class="font-semibold text-theme-darkblue leading-tight" v-html="data?.quote"></p>
+                </div>
+            </blockquote>
         </div>
     </div>
 </template>
@@ -96,9 +93,9 @@
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: container.value,
-                    scrub: 0.4,
+                    scrub: 0.5,
                     start: 'top 30%',
-                    end: 'bottom 20%', // controls how long the full cycle lasts
+                    end: 'bottom 30%', // controls how long the full cycle lasts
                 }
             })
 

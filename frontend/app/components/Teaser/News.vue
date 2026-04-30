@@ -4,8 +4,8 @@
         <div aria-hidden class="flex flex-col gap-double-space">
             <div class="flex flex-col gap-single-space">
                 <div class="flex gap-2">
-                    <span v-if="categories" class="meta uppercase font-semibold text-theme-lime">{{ categories }}</span>
-                    <span v-if="categories" class="meta uppercase font-semibold text-highlight">-</span>
+                    <span v-if="categories" class="meta uppercase font-semibold text-highlight">{{ categories }}</span>
+                    <span class="text-highlight">-</span>
                     <span class="meta uppercase font-semibold text-highlight">{{ month }} {{ year }}</span>
                 </div>
                 <figure v-if="data.image" class="w-full aspect-4/3 overflow-hidden">
