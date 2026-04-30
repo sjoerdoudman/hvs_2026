@@ -148,12 +148,11 @@
     }
 
     onMounted(() => {
-        initTransition()
-        heroHeight.value = heroRef.value?.clientHeight
-        window.addEventListener('scroll', initScrollListeners);
-    })
-    onUnmounted(() => {
-        window.removeEventListener('scroll', initScrollListeners);
+        nextTick(() => {
+            setTimeout(() => {
+                initTransition()
+            }, 50)
+        })
     })
 </script>
 
