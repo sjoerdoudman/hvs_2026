@@ -30,7 +30,7 @@
         const wh = window.innerHeight || 0;
         const ww = window.innerWidth || 0;
 
-        console.log(sh, sy, wh)
+        // console.log(sh, sy, wh)
 
         if (ww < 1024) {
             const f = footer.value?.$el?.offsetHeight || 0

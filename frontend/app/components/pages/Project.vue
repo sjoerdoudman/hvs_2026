@@ -1,7 +1,7 @@
 <template>
     <main>
-        <Hero :title="data.title"  :skew="5" :shift="5" :image="data.image"></Hero>
-        <div class="relative z-20 flex flex-col gap-quadruple-space">
+        <Hero :title="data.title"  :skew="skew" :shift="shift" :image="data.image"></Hero>
+        <div class="relative z-20 flex flex-col gap-quadruple-space mt-quadruple-space">
 
             <!-- Blocks -->
             <div v-if="data.blocks" class="relative z-20 flex flex-col gap-quadruple-space">
@@ -30,4 +30,9 @@
     }>(), {
         context: 'default'
     })
+
+    // create random shift and skew from 1 to 3
+    const shift = Math.floor(Math.random() * 3) + 1
+    // create random skew from -5 to 5
+    const skew = Math.floor(Math.random() * 11) - 5
 </script>

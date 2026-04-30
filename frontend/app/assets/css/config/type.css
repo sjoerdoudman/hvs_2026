@@ -24,13 +24,7 @@
         @apply antialiased;
     }
 
-    blockquote p {
-        font-family: 'Soehne breit', sans-serif;
-        @apply text-[calc(1.25rem+2.25vw+2.25vh)] font-bold;
-    }
-
-
-    .display, h1, .h1, h2, .h2, h4, h5, footer nav ul li {
+    .display, h1, .h1, h2, .h2, h4, h5, footer nav ul li, blockquote p {
         font-family: 'Soehne breit', sans-serif;
     }
 
@@ -46,16 +40,20 @@
         @apply text-[calc(1.25rem+2.25vw+2.25vh)] uppercase;
     }
 
-    h2 , .h2{
+    h2 , .h2 {
         @apply text-[calc(1rem+1vw+1vh)] uppercase font-bold;
     }
 
-    h3, .h3 {
+    h3, .h3 , .h3 p {
         @apply text-[calc(.85rem+.85vw+.85vh)] font-normal;
     }
 
     p, .p {
         @apply text-[calc(.55rem+.55vw+.55vh)]
+    }
+
+    blockquote p {
+        @apply text-[calc(1rem+1vw+1vh)] font-semibold;
     }
 
     small, .meta {

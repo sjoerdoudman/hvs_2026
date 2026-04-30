@@ -1,8 +1,8 @@
 <template>
-    <component :is="tag" v-bind="attrs" v-if="data" class="btn cursor-pointer relative py-2 px-4 bg-theme-lime text-black font-semibold inline-block group">
+    <component :is="tag" v-bind="attrs" v-if="data" class="btn cursor-pointer relative bg-theme-lime text-black font-semibold inline-block group" :class="size == 'small' ? ' py-2 px-4' : ' py-3 px-6'">
         <div class="absolute w-full h-full left-1/2 -translate-x-1/2 top-0 bg-white max-w-0 overflow-hidden group-hover:max-w-full group-focus:max-w-full transition-all duration-300"></div>
         <div class="relative flex items-center gap-1">
-            <span>
+            <span :class="size == 'small' ? 'text-base' : 'p'">
                 {{ data.label }}
             </span>
             <span class="material-symbols-outlined">arrow_forward</span>
@@ -30,8 +30,10 @@
 
     const props = withDefaults(defineProps<{
        data?: any;
+       size?: string
     }>(), {
-        data: null
+        data: null,
+        size: 'default'
     })
     // console.log('Button data', props.data)
 </script>

@@ -14,7 +14,7 @@
                 <small class="meta uppercase font-semibold">{{ data.location }} - {{ data.city }}</small>
             </div>
             <div class="md:col-span-2 md:text-right mt-single-space md:mt-0">
-                <ElementsButton v-if="data.ticket_url && data.ticket_status?.value == 'available'" :data="{ label: 'Tickets', url: data.ticket_url }"></ElementsButton>
+                <ElementsButton size="small" v-if="data.ticket_url && data.ticket_status?.value == 'available'" :data="{ label: 'Tickets', url: data.ticket_url }"></ElementsButton>
                 <span class="py-2 px-4 bg-black/90" v-else-if="data.ticket_status?.value == 'sold_out'">Uitverkocht</span>
                 <span class="py-2 px-4 bg-black/90" v-else>Besloten</span>
             </div>

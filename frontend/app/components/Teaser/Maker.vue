@@ -25,7 +25,7 @@
                     <p class="meta uppercase" v-html="data.function"></p>
                 </div>
                 <div class="flex flex-col gap-double-space">
-                    <p v-html="data.description"></p>
+                    <p class="h3" v-html="data.description"></p>
                     <div>
                         <ElementsButton></ElementsButton>
                     </div>

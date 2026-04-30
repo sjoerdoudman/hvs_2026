@@ -1,7 +1,7 @@
 <template>
     <div class="container--lg">
         <div class="title-block">
-            <p>
+            <p class="h3 text-highlight">
                 {{ strippedDescription }}
             </p>
         </div>

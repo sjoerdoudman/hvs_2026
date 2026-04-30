@@ -1,7 +1,7 @@
 <template>
     <section class="flex flex-col w-full last:mb-sextuple-space mt-single-space">
         <div class="container--lg w-full">
-            <div class="content-column">
+            <div class="max-w-[600px]">
                 <div class="col-span-2 flex flex-col gap-4">
                     <div v-html="data.text"></div>
                     <div v-if="data.buttons" class="flex gap-6">
