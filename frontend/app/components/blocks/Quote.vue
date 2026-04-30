@@ -29,6 +29,7 @@
                 </div>
             </blockquote>
         </div>
+        <figure class="fixed pointer-events-none left-0 top-0 w-screen h-screen z-1 maskedImg bg-theme-lightpink w-full aspect-video flex items-center justify-center"></figure>
     </div>
 </template>
 
