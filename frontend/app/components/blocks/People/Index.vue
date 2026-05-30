@@ -8,7 +8,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-double-space gap-y-triple-space">
                 <div v-for="item in data.items" class="flex flex-col gap-3">
                     <div class="flex flex-col gap-3">
-                        <figure class="w-full aspect-4/3">
+                        <figure class="w-full aspect-3/4 overflow-hidden">
                             <ElementsImage :width="'400'" :height="'300'" :url="item.image?.url" :alt="item.image?.alt"></ElementsImage>
                         </figure>
                     </div>

@@ -24,15 +24,10 @@
 <script setup lang="ts">
 import { mulberry32 } from '~/utils/seededRandom'
 import { GRID_PATTERNS } from '~/constants/gridPatterns'
-
-type ImageItem = {
-  id: string | number
-  src: string
-  alt?: string
-}
+import type { Image } from '~/types/image';
 
 const props = defineProps<{
-  images: ImageItem[]
+  images: Image[]
   seed?: number | string
 }>()
 

@@ -8,7 +8,7 @@
                 <h3 class="leading-none">{{ data.event_title }}</h3>
             </div>
              <div v-else class="md:col-span-3 flex group">
-                <h3 class="leading-none">{{ project.title }}</h3>
+                <h3 class="leading-none">{{ data.project?.title || data.title }}</h3>
             </div>
             <div class="md:col-span-4 md:text-right">
                 <small class="meta uppercase font-semibold">{{ data.location }} - {{ data.city }}</small>
@@ -31,5 +31,7 @@
         project: null
     })
     const date = computed(() => new Date(props.data.date).toLocaleString('nl', { month: 'long', day: 'numeric', year: 'numeric' }))
-    const time = computed(() => new Date(props.data.date).toLocaleString('nl', { hour: 'numeric', minute: 'numeric' }))
+    const time = computed(() => props.data.time)
+
+    console.log(props.data)
 </script>

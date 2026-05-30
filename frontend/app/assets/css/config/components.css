@@ -34,5 +34,5 @@
         @apply underline underline-offset-[.15em]
     }
 
-    :root { --swiper-pagination-top: calc(100% + 60px);}
+    :root { --swiper-pagination-top: calc(100% + 50px);}
 }

@@ -1,5 +1,5 @@
 <template>
-    <div ref="heroRef" class="relative w-full min-h-[250dvh] md:min-h-[250dvh] overflow-hidden mb-sextuple-space">
+    <div ref="heroRef" class="relative w-full min-h-[200dvh] md:min-h-[200dvh] overflow-hidden mb-sextuple-space">
         <div ref="canvasRef" class="absolute z-10 w-full h-full flex items-end justify-center bg-black">
             <svg
                 width="100"
@@ -42,10 +42,12 @@
     import gsap from 'gsap';
     import { ScrollTrigger } from "gsap/ScrollTrigger";
     import { useUIStore } from '~/stores/ui';
+    import type { Image } from "~/types/image";
 
+    // images should be an array of images
     const props = defineProps({
         images: {
-            type: Array,
+            type: Array as PropType<Image[]>,
             required: true
         },
         description: {
@@ -119,7 +121,7 @@
                     trigger: heroRef.value,
                     scrub: true,
                     start: 'top top',
-                    end: screenHeight.value * 2, // 👈 200px scroll distance
+                    end: screenHeight.value * 2,
                 },
             });
             // animate second triangle
@@ -129,7 +131,7 @@
                     trigger: heroRef.value,
                     scrub: true,
                     start: 'top top',
-                    end: screenHeight.value * 2, // 👈 200px scroll distance
+                    end: screenHeight.value * 2,
                 }
             });
             gsap.to(randomGridRef.value, {

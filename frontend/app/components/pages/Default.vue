@@ -4,7 +4,6 @@
         <div class="relative z-20 flex flex-col gap-sextuple-space">
             <!-- Intro Block -->
             <Intro :description="data.description"/>
-
             <div v-if="data.blocks" class="relative z-20 flex flex-col gap-triple-space">
                 <Blocks :data="data.blocks" />
             </div>

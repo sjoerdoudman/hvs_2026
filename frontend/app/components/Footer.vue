@@ -14,7 +14,7 @@
                 <nav class="md:col-span-1">
                    <ul>
                         <li v-for="link in mainmenu" :key="link.id">
-                            <nuxt-link :to="link.page.url" class="text-[1.25rem] font-bold uppercase hover:text-theme-darkblue focus:text-theme-darkblue">
+                            <nuxt-link @focus="scrollToBottom()" :to="link.page.url" class="text-[1.25rem] font-bold uppercase hover:text-theme-darkblue focus:text-theme-darkblue focus:outline-none">
                                 {{ $softHyphen(link.page.title) }}
                             </nuxt-link>
                         </li>
@@ -24,13 +24,13 @@
                     <div v-if="settings" class="flex flex-col gap-single-space">
                         <p v-if="settings.address" class="whitespace-pre-line" v-html="settings.address"></p>
                         <p>
-                            <a :href="`mailto:${settings.email }`" v-html="settings.email"></a><br>
-                            <a :href="`tel:${settings.phone }`" v-html="settings.phone"></a>
+                            <a v-if="settings.email" @focus="scrollToBottom()" :href="`mailto:${settings.email }`" v-html="settings.email"></a><br>
+                            <a v-if="settings.phone" @focus="scrollToBottom()" :href="`tel:${settings.phone }`" v-html="settings.phone"></a>
                         </p>
                     </div>
                     <ul>
                         <li v-for="link in footermenu" :key="link.id">
-                            <nuxt-link :to="link.page.url" class="hover:underline underline-offset-4">
+                            <nuxt-link @focus="scrollToBottom()" :to="link.page.url" class="hover:underline focus:underline underline-offset-4 focus:outline-none">
                                 {{ link.page.title }}
                             </nuxt-link>
                         </li>
@@ -38,7 +38,7 @@
                 </div>
            </div>
         </div>
-        <nuxt-link to="/" class="flex items-center justify-center py-double-space">
+        <nuxt-link @focus="scrollToBottom()" to="/" class="flex items-center justify-center py-double-space focus:scale-95 focus:outline-none duration-300">
             <span class="sr-only">Huis Salomon homepage</span>
             <Logo
                 aria-hidden
@@ -60,6 +60,10 @@
     const mainmenu = ref<any>(null)
     const footermenu = ref<any>(null)
     const settings = ref<any>(null)
+
+    const scrollToBottom = () => {
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
 
     watchEffect(() => {
         if (mainMenu.value) {
