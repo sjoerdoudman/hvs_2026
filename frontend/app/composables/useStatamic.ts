@@ -42,7 +42,7 @@ export const useStatamic = () => {
   )
 
   const { data: eventsData, pending: eventsPending, error: eventsError } = useFetch(
-    `${config.public.API_URL}/collections/events/entries?fields=id,slug,title,description,date,event_title,project,location,city,ticket_status,ticket_url`,
+    `${config.public.API_URL}/collections/events/entries?fields=id,slug,title,description,date,event_title,project,location,city,ticket_status,ticket_url,time&sort=title,time`,
     {
       key: 'statamic-events',
       server: false, // Only run on client side for now

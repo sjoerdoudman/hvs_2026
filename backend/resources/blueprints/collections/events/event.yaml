@@ -8,9 +8,15 @@ tabs:
           -
             handle: date
             field:
-              time_enabled: true
               type: date
               display: Date
+              listable: true
+              format: Y-m-d
+          -
+            handle: time
+            field:
+              type: time
+              display: Time
           -
             handle: title
             field:

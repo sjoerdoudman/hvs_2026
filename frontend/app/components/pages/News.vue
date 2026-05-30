@@ -28,7 +28,7 @@
         <section class="last:pb-triple-space">
             <div class="container--lg flex items-center gap-2">
                 <p class="font-bold text-theme-lime">
-                    <nuxt-link to="/nieuws">Nieuws</nuxt-link>
+                    <nuxt-link to="/nieuws" class="underline-offset-4 hover:underline focus:underline outline-none">Nieuws</nuxt-link>
                 </p>
                 <span class="material-symbols-outlined">chevron_right</span>
                 <p class="font-bold text-theme-lime" v-text="data.title"></p>

@@ -16,8 +16,10 @@ preferences:
       view: list
       columns:
         - title
+        - time
         - project
         - event_title
         - location
         - city
         - status
+      after_save: continue_editing
