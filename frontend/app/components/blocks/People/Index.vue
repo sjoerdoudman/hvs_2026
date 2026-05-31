@@ -15,6 +15,7 @@
                     <div class="flex flex-col gap-2">
                         <small class="uppercase text-highlight font-bold" v-html="item.function"></small>
                         <h3 class="leading-none" v-html="item.name"></h3>
+                        <div class="editor" v-if="item.contact" v-html="item.contact"></div>
                     </div>
                 </div>
             </div>

@@ -34,3 +34,12 @@ fields:
                   field:
                     type: text
                     display: Name
+                -
+                  handle: contact
+                  field:
+                    buttons:
+                      - anchor
+                    container: assets
+                    remove_empty_nodes: true
+                    type: bard
+                    display: Contact

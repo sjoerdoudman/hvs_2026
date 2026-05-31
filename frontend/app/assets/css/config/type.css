@@ -76,7 +76,36 @@
         font-family: 'Soehne breit', sans-serif;
     }
 
-    .markdown p + p {
+    .markdown p + p, .editor p + p, .editor p + ul, .editor p + ol {
         @apply mt-single-space;
+    }
+
+    .editor ul,
+    .editor ol {
+      li {
+        @apply not-last:mb-single-space pl-5 relative flex;
+      }
+    }
+
+    .editor ul {
+      li::before {
+        @apply size-2 absolute top-[.75em] left-0 rounded-full content-[''] bg-current;
+      }
+    }
+
+    .editor ol {
+      counter-reset: count;
+      li {
+        counter-increment: count;
+      }
+
+      li::before {
+        @apply absolute left-0 font-bold top-[.25em];
+        content: counter(count, decimal) ".";
+      }
+    }
+
+    .editor p a {
+        @apply underline underline-offset-2 hover:no-underline focus:no-underline
     }
 }

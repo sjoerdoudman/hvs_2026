@@ -8,7 +8,7 @@
                 <div class="col-span-1 flex flex-col gap-double-space">
                     <div class="flex flex-col gap-2">
                         <h3 class="text-highlight text-[2.25rem]" v-html="data.title"></h3>
-                        <div class="markdown" v-html="data.text"></div>
+                        <div class="editor" v-html="data.text"></div>
                     </div>
                     <div v-if="data.buttons?.length" class="flex gap-6 mt-single-space">
                         <ElementsButton v-for="button in data.buttons" :data="button"></ElementsButton>
