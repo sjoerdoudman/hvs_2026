@@ -34,15 +34,23 @@ fields:
                       - italic
                       - unorderedlist
                       - orderedlist
-                      - quote
-                      - link
-                    type: markdown
+                      - anchor
+                    container: assets
+                    remove_empty_nodes: false
+                    type: bard
                     display: Text
                 -
                   handle: expanded_text
                   field:
-                    type: markdown
+                    buttons:
+                      - bold
+                      - italic
+                      - unorderedlist
+                      - orderedlist
+                      - anchor
+                    container: assets
+                    remove_empty_nodes: false
+                    type: bard
                     display: 'Expanded text'
-                    instructions: 'Use this to add text that can be toggled by the user'
   -
     import: buttons
