@@ -44,15 +44,15 @@
     }
 
     h1, .h1 {
-        @apply text-[calc(1.25rem+2.25vw+2.25vh)] uppercase leading-tight;
+        @apply text-[calc(1.25rem+2.25vw+2.25vh)] uppercase leading-none;
     }
 
     h2 , .h2 {
-        @apply text-[calc(1rem+1vw+1vh)] uppercase font-bold;
+        @apply text-[calc(1.45rem+1.45vw+1.45vh)] uppercase font-bold;
     }
 
     h3, .h3 , .h3 p {
-        @apply text-[calc(.85rem+.85vw+.85vh)] font-normal;
+        @apply text-[calc(.85rem+.85vw+.85vh)] font-normal leading-tight;
     }
 
     p, .p {

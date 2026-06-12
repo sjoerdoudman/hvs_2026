@@ -13,7 +13,7 @@
         </section>
 
         <!-- Text & media Block -->
-        <BlocksTextImage :data="{ image: data.image, text: data.text }"></BlocksTextImage>
+        <BlocksTextImage :data="{ image: data.image, text: data.text, buttons: data.buttons }"></BlocksTextImage>
 
         <!-- Blocks -->
         <div v-if="data.blocks" class="relative z-20 flex flex-col gap-triple-space">
@@ -43,10 +43,13 @@
     }>(), {
     })
 
+    const entry = computed(() => props.data)
+
     // get the Dutch month name
     const month = computed(() => new Date(props.data.date).toLocaleString('nl', { month: 'long' }))
     // get the year as a computed property
     const year = computed(() => new Date(props.data.date).getFullYear())
     // get the categories as a comma seperated list
     const categories = computed(() => props.data.categories.map((category: any) => category.title).join(', '))
+
 </script>

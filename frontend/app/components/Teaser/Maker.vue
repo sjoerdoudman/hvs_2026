@@ -21,7 +21,7 @@
             </figure>
             <div class="flex flex-col gap-double-space">
                 <div class="flex flex-col gap-2">
-                    <h3 class="text-highlight uppercase leading-none h1" v-html="data.title"></h3>
+                    <h3 class="text-highlight uppercase leading-none h2" v-html="data.title"></h3>
                     <p class="meta uppercase" v-html="data.function"></p>
                 </div>
                 <div class="flex flex-col gap-double-space">

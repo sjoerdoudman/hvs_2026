@@ -30,13 +30,12 @@ tabs:
             handle: text
             field:
               buttons:
-                - bold
-                - italic
                 - unorderedlist
                 - orderedlist
-                - quote
-                - link
-              type: markdown
+                - anchor
+              container: assets
+              remove_empty_nodes: false
+              type: bard
               display: Text
           -
             import: buttons

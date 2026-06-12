@@ -6,7 +6,7 @@
                     <ElementsImage v-if="data.image" :width="'600'" :height="'600'" :url="data.image.url" :alt="data.image.alt"></ElementsImage>
                 </figure>
                 <div class="col-span-1 flex flex-col gap-double-space">
-                    <div class="flex flex-col gap-2">
+                    <div class="flex flex-col gap-4">
                         <h3 class="text-highlight text-[2.25rem]" v-html="data.title"></h3>
                         <div class="editor" v-html="data.text"></div>
                     </div>
@@ -26,5 +26,5 @@
         data: null,
     })
 
-    // console.log('Text image component buttons', props.data.buttons)
+    // console.log('Text image component buttons', props.data)
 </script>
