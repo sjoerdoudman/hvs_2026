@@ -1,6 +1,6 @@
 <template>
     <nuxt-link v-if="data" :to="data.url" class="block hover:-translate-y-1 focus:-translate-y-1 transition-all duration-300">
-        <span class="sr-only" v-text="`Meer over Ilay den Boer`"></span>
+        <span class="sr-only" v-text="`Meer over ${data.title}`"></span>
 
         <!-- Small Teaser -->
         <div v-if="size === 'small'" class="flex flex-col gap-single-space">
