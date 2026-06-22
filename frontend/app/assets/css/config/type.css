@@ -40,32 +40,28 @@
     }
 
     .display {
-        @apply text-4xl md:text-[calc(1.5rem+2.5vw+2.5vh)] uppercase;
+        @apply text-[2.85rem] md:text-[calc(1.75rem+2.5vw+2.5vh)] uppercase;
     }
 
     h1, .h1 {
-        @apply text-[calc(1.25rem+2.25vw+2.25vh)] uppercase leading-none;
+        @apply text-[2.85rem] md:text-[calc(1.65rem+2.25vw+2.25vh)] uppercase leading-none;
     }
 
     h2 , .h2 {
-        @apply text-[calc(1.45rem+1.45vw+1.45vh)] uppercase font-bold;
+        @apply text-[2.125rem] md:text-[calc(1.45rem+1.45vw+1.45vh)] uppercase font-bold leading-none;
     }
 
     h3, .h3 , .h3 p {
-        @apply text-[calc(.85rem+.85vw+.85vh)] font-normal leading-tight;
+        @apply text-[1.75rem] md:text-[calc(.75rem+.75vw+.75vh)] font-normal leading-tight;
     }
 
     p, .p {
-        @apply text-[calc(.55rem+.55vw+.55vh)]
-    }
-
-    blockquote p {
-        @apply text-[calc(1rem+1vw+1vh)] font-semibold;
+        @apply text-[1.125rem] md:text-[calc(.55rem+.55vw+.55vh)]
     }
 
     small, .meta {
         font-family: 'Soehne mono', sans-serif;
-        @apply text-[calc(.45rem+.45vw+.45vh)]
+        @apply text-[1rem] md:text-[calc(.45rem+.45vw+.45vh)]
     }
 
     .soehne {

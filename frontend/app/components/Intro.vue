@@ -1,5 +1,5 @@
 <template>
-    <div class="container--lg">
+    <div class="container--md">
         <div class="title-block">
             <p class="h3 text-highlight">
                 {{ strippedDescription }}

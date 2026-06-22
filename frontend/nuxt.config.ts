@@ -5,6 +5,25 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['./app/assets/css/main.css'],
 
+  app: {
+    layoutTransition: true,
+    head: {
+      title: 'Huis van Salomon',
+      titleTemplate: '%s | Huis van Salomon',
+      htmlAttrs: { lang: 'nl' },
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon/favicon.ico' },
+        { rel: 'shortcut icon', type: 'image/png', href: '/favicon/favicon.ico' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon/apple-touch-icon.png' }, ,
+        { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon/favicon-96x96.png' },
+        { rel: 'manifest', href: '/favicon/site.webmanifest' }
+      ]
+    }
+  },
+
+
   vite: {
     plugins: [
       tailwindcss(),

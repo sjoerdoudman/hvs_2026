@@ -1,11 +1,11 @@
 <template>
     <nuxt-link v-if="data" :to="data.url" class="inline-block duration-200 hover:-translate-y-1 focus:-translate-y-1">
         <span class="sr-only" v-text="data.title"></span>
-        <div aria-hidden class="flex flex-col gap-double-space">
+        <div aria-hidden class="flex flex-col gap-single-space">
             <div class="flex flex-col gap-single-space">
                 <div class="flex gap-2">
                     <span v-if="categories" class="meta uppercase font-semibold text-highlight">{{ categories }}</span>
-                    <span class="text-highlight">-</span>
+                    <span v-if="categories" class="text-highlight">-</span>
                     <span class="meta uppercase font-semibold text-highlight">{{ month }} {{ year }}</span>
                 </div>
                 <figure v-if="data.image" class="w-full aspect-4/3 overflow-hidden">

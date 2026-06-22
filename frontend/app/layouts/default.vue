@@ -1,14 +1,16 @@
 <template>
-    <div class="w-full relative z-10" :class="[footerIsFocusable ? 'pointer-events-none' : '']" :style="{ marginBottom: footer ? fh + 'px' : '0px' }">
-        <div :class="[ `theme bg-theme-${theme}` ]" class=" text-white">
-            <Header class="duration-300" :class="[ showHeader ? 'opacity-100' : 'opacity-0 pointer-events-none' ]" />
-            <NavigationMain></NavigationMain>
-            <div class="min-h-screen" :class="[`bg-theme-${theme}`]">
-                <NuxtPage />
+    <div>
+        <div class="w-full relative z-10" :class="[footerIsFocusable ? 'pointer-events-none' : '']" :style="{ marginBottom: footer ? fh + 'px' : '0px' }">
+            <div :class="[ `theme bg-theme-${theme}` ]" class=" text-white">
+                <Header class="duration-300" :class="[ showHeader ? 'opacity-100' : 'opacity-0 pointer-events-none' ]" />
+                <NavigationMain></NavigationMain>
+                <div class="min-h-screen" :class="[`bg-theme-${theme}`]">
+                    <NuxtPage />
+                </div>
             </div>
         </div>
+        <Footer ref="footer" class="lg:fixed w-full left-0 bottom-0" />
     </div>
-    <Footer ref="footer" class="lg:fixed w-full left-0 bottom-0" />
 </template>
 
 <script setup lang="ts">
@@ -67,11 +69,28 @@
         }
     };
 
+    let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+
+    const onResize = () => {
+        if (debounceTimer) clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+            setFooterHeight();
+        }, 300);
+    }
+
+    const setFooterHeight = () => {
+        if (!footer.value) return
+        if (window.innerWidth < 1024) {
+            fh.value = 0;
+            return
+        };
+        fh.value = footer.value?.$el.offsetHeight || 0;
+    }
+
     onMounted(() => {
         window.addEventListener('scroll', onScroll);
-        if (!footer.value) return
-        if (window.innerWidth < 1024) return;
-        fh.value = footer.value?.$el.offsetHeight || 0;
+        window.addEventListener('resize', onResize);
+        setFooterHeight();
         // add lime color to body
         document.body.classList.add(`bg-theme-${theme.value}`)
     })

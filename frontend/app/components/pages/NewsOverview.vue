@@ -1,9 +1,7 @@
 <template>
     <main v-if="data">
-        <Hero :title="data.title" :skew="skew" :shift="shift"></Hero>
+        <Hero :title="data.title" :skew="skew" :shift="shift" :description="data.description"></Hero>
         <div class="pb-quadruple-space relative z-10 flex flex-col gap-quadruple-space min-h-screen">
-            <!-- Intro Block -->
-            <Intro :description="data.description"></Intro>
             <!-- News Block -->
             <BlocksNews :data="{ title: 'Het laatste nieuws', maxItems: 6, pagination: true }"/>
         </div>

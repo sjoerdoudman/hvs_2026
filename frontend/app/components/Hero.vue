@@ -1,6 +1,13 @@
 <template>
-    <div ref="heroRef" class="w-full h-dvh flex relative">
-        <div ref="canvasRef" class="fixed z-30 left-0 top-0 w-screen h-dvh flex items-center justify-center pointer-events-none overflow-hidden">
+    <div ref="heroRef" class="w-full h-[120vh] flex relative mb-[25vh] md:mb-sextuple-space">
+        <div class="fixed w-screen h-auto top-[90vh] flex justify-center z-40">
+            <button v-if="!animationComplete" @click="scrollDown()" aria-label="Scroll naar de inhoud" :class="[ `bg-theme-${theme}` ]" class="flex items-center justify-center size-12 rounded-full cursor-pointer">
+                <span class="material-symbols-outlined text-3xl text-highlight">
+                    arrow_downward
+                </span>
+            </button>
+        </div>
+        <div ref="canvasRef" class="fixed z-30 left-0 top-0 w-screen h-dvh flex items-center justify-center overflow-hidden pointer-events-none">
             <svg
                 width="100"
                 height="100"
@@ -22,24 +29,20 @@
                     </clipPath>
                 </defs>
             </svg>
-            <figure ref="image" class="maskedImg absolute pointer-events-none left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[105vw] h-[105vw] flex items-center justify-center bg-highlight">
+            <figure :class="[ reverse ? 'rotate-x-180' : '' ]" ref="image" class="maskedImg absolute pointer-events-none left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-[105vw] min-h-[105vh] aspect-square flex items-center justify-center bg-highlight">
                 <ElementsImage v-if="image" :width="'300'" :height="'400'" :url="image.url" :alt="image.alt"></ElementsImage>
                 <div v-else class="absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
                     <div class="container--sm text-center">
-                        <h1 aria-hidden :class="[`text-theme-${theme}`]" class="display text-current uppercase" v-html="$softHyphen(title)"></h1>
+                        <h1 aria-hidden :class="[`text-theme-${theme}`, reverse ? 'rotate-x-180' : '']" class="display text-current uppercase" v-html="$softHyphen(title)"></h1>
                     </div>
-                </div>
-                <div class="absolute w-full h-auto bottom-double-space flex justify-center">
-                    <button @click="scrollDown()" aria-label="Scroll naar de inhoud" :class="[ `bg-theme-${theme}` ]" class="flex items-center justify-center size-12 rounded-full cursor-pointer">
-                        <span class="material-symbols-outlined text-3xl text-highlight">
-                            arrow_downward
-                        </span>
-                    </button>
                 </div>
             </figure>
         </div>
         <div class="container--sm text-center relative">
-            <h1 class="display text-highlight uppercase sticky top-1/2 -translate-y-1/2" v-html="$softHyphen(title)"></h1>
+            <div class="sticky top-[50vh]">
+                <h1 :style="{ transform: `translateY(${-titleShift}px)` }" ref="titleRef" :class="[ animationComplete ? '' : 'opacity-0' ]" class="display text-highlight uppercase duration-300" v-html="$softHyphen(title)"></h1>
+                <Intro :style="{ transform: `translateY(${-titleShift}px)` }" class="mt-triple-space" :description="description"/>
+            </div>
         </div>
     </div>
 </template>
@@ -48,33 +51,41 @@
     import gsap from 'gsap';
     import { ScrollTrigger } from "gsap/ScrollTrigger";
     gsap.registerPlugin(ScrollTrigger);
+
     const ui = useUIStore();
     const { theme } = storeToRefs(ui)
     const show = ref<boolean>(false)
+    const animationComplete = ref<boolean>(false)
 
     const props = withDefaults(defineProps<{
         title: string;
         image?: any;
         skew?: number;
         shift?: number
+        description?: string,
+        reverse?: boolean
     }>(), {
         skew: 0,
-        shift: 0
+        shift: 0,
+        description: '',
+        reverse: false
     })
 
+    // const heroHeight = ref(0);
+    // const scrolled = ref(false);
     const heroRef = ref(null);
-    const heroHeight = ref(0);
     const firstTriangleRef = ref(null);
     const secondTriangleRef = ref(null);
-    const scrolled = ref(false)
+    const titleRef = ref(null);
+    const titleShift = ref(0);
 
     const firsPointsOrigin = computed(() => {
         return `
             -10,0
             1,-10
-            10,${props.skew * 1.65}
+            10,${props.skew * 1.75}
             0.5,0.5
-            -10,${-props.skew * 3}
+            -10,${-props.skew * 2.5}
         `;
     })
     const secondPointsOrigin = computed(() => {
@@ -82,14 +93,14 @@
             -10,1
             -10,${-props.skew * 1.5}
             0.5,0.5
-            10,${props.skew * 3}
+            10,${props.skew * 2.5 }
             1,1
         `;
     })
 
     const initTransition = async () => {
         const wh = window.innerHeight;
-        const sh = document.documentElement.scrollHeight;
+        // const sh = document.documentElement.scrollHeight;
         show.value = true;
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const topAnchorX = 0.5 + props.shift
@@ -120,7 +131,7 @@
                     scrub: true,
                     start: 'top 10px',
                     end: `+=${wh/2}`, // 👈 200px scroll distance
-                    once: true
+                    once: true,
                 },
             });
             gsap.to(secondTriangleRef.value, {
@@ -131,6 +142,9 @@
                     start: 'top 10px',
                     end: `+=${wh/2}`, // 👈 200px scroll distance
                     once: true
+                },
+                onComplete: () => {
+                    animationComplete.value = true
                 }
             });
         }
@@ -143,11 +157,8 @@
         });
     }
 
-    const initScrollListeners = () => {
-        scrolled.value = window.scrollY > (heroHeight.value / 2)
-    }
-
     onMounted(() => {
+        titleShift.value = (titleRef.value?.offsetHeight || 0) / 2;
         nextTick(() => {
             setTimeout(() => {
                 initTransition()

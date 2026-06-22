@@ -1,5 +1,5 @@
 <template>
-    <section class="flex flex-col gap-triple-space w-full">
+    <section class="flex flex-col gap-sextuple-space w-full">
         <div class="container--lg w-full">
             <div :class="[ data.size.value == 'small' ? 'md:grid-cols-2 lg:grid-cols-4 gap-double-space' : 'grid-cols-1 gap-triple-space' ]" class="grid">
                 <TeaserMaker

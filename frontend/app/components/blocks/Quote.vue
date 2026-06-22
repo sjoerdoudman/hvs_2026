@@ -25,7 +25,7 @@
         <div class="container--lg relative z-2 py-[20vh] flex items-center justify-center">
             <blockquote class="relative z-2 pt-[20vh]">
                 <div class="content-column text-center">
-                    <p class="font-semibold text-theme-darkblue leading-tight" v-html="data?.quote"></p>
+                    <p class="h2 text-theme-darkblue" v-html="data?.quote"></p>
                 </div>
             </blockquote>
         </div>
@@ -115,7 +115,7 @@
             }, 1)
 
             tl.to(secondTriangleRef.value, {
-            attr: { points: secondPointsOrigin.value },
+                attr: { points: secondPointsOrigin.value },
             }, 1)
         }
     }

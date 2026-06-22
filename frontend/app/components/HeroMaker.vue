@@ -35,7 +35,7 @@
             </div>
             <div class="flex justify-center">
                 <figure class="aspect-3/4 min-w-full lg:min-w-[40vw]">
-                    <ElementsImage :width="'300'" :height="'400'" :url="image.url" :alt="image.alt"></ElementsImage>
+                    <ElementsImage :width="'900'" :height="'1200'" :url="image.url" :alt="image.alt"></ElementsImage>
                 </figure>
             </div>
         </div>

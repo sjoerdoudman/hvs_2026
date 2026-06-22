@@ -1,9 +1,7 @@
 <template>
     <main v-if="data">
-        <Hero :title="data.title" :skew="shift" :shift="skew"></Hero>
+        <Hero :title="data.title" :description="data.description" :skew="shift" :shift="skew" :reverse="reverse"></Hero>
         <div class="relative z-20 flex flex-col gap-sextuple-space">
-            <!-- Intro Block -->
-            <Intro :description="data.description"/>
             <div v-if="data.blocks" class="relative z-20 flex flex-col gap-triple-space">
                 <Blocks :data="data.blocks" />
             </div>
@@ -23,6 +21,7 @@
     const shift = Math.floor(Math.random() * 4) + 3
     // create random skew from -5 to 5
     const skew = Math.floor(Math.random() * 11) - 5
+    // create random reverse true or false
+    const reverse = Math.floor(Math.random() * 2) == 1
 
-    // console.log('Makers data', props.data)
 </script>
