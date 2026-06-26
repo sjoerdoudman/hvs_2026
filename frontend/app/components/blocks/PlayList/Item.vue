@@ -33,5 +33,5 @@
     const date = computed(() => new Date(props.data.date).toLocaleString('nl', { month: 'long', day: 'numeric', year: 'numeric' }))
     const time = computed(() => props.data.time)
 
-    console.log(props.data)
+    // console.log(props.data)
 </script>
