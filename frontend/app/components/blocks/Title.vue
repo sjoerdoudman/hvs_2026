@@ -4,8 +4,8 @@
             <div class="content-column">
                 <div class="col-span-2 title-block flex flex-col gap-4">
                     <h2 class="text-highlight uppercase font-bold" v-html="$softHyphen(data.title)"></h2>
-                    <div class="h3" v-html="data.description"></div>
-                    <div v-if="data.buttons && data.buttons.length" class="flex gap-6 mt-single-space">
+                    <div class="intro" v-html="data.description"></div>
+                    <div v-if="data.buttons && data.buttons.length" class="flex flex-col md:flex-row gap-6 mt-single-space">
                         <ElementsButton v-for="button in data.buttons" :data="button"></ElementsButton>
                     </div>
                 </div>

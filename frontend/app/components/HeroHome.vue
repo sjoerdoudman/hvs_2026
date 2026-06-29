@@ -28,7 +28,7 @@
             <figure :class="[ isCompleted ? 'opacity-0' : 'opacity-100' ]" ref="image" class="maskedImg fixed z-10 pointer-events-none top-0 left-0 w-screen h-screen flex items-center justify-center">
                 <div class="absolute left-0 top-0 w-full h-[200vh] bg-theme-darkblue"></div>
             </figure>
-            <div ref="randomGridRef" class="absolute left-0 top-0 w-full h-full images p-triple-space">
+            <div ref="randomGridRef" class="random-grid absolute left-0 top-0 w-full h-full images p-triple-space">
                 <RandomGrid v-if="images" :images="images" :seed="'homepage'"></RandomGrid>
             </div>
             <div ref="titleRef" class="relative z-20 container--md w-full text-center title-block flex justify-center">

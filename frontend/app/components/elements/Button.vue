@@ -1,5 +1,5 @@
 <template>
-    <component :is="tag" v-bind="attrs" v-if="data" class="btn cursor-pointer relative bg-theme-lime text-black font-semibold inline-block group" :class="size == 'small' ? ' py-1 px-3' : ' py-2 px-4'">
+    <component :is="tag" v-bind="attrs" v-if="data" class="btn cursor-pointer relative bg-theme-lime text-black font-semibold inline-block group w-fit" :class="size == 'small' ? ' py-1 px-3' : ' py-2 px-4'">
         <div class="absolute w-full h-full left-1/2 -translate-x-1/2 top-0 bg-white max-w-0 overflow-hidden group-hover:max-w-full group-focus:max-w-full transition-all duration-300"></div>
         <div class="relative flex items-center gap-1">
             <span :class="size == 'small' ? 'text-base' : 'p'">

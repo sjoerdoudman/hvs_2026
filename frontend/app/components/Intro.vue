@@ -1,7 +1,7 @@
 <template>
-    <div class="container--md">
+    <div :class="[ container ? 'container--md' : '']">
         <div class="title-block">
-            <p class="h3 text-highlight">
+            <p class="intro text-highlight">
                 {{ strippedDescription }}
             </p>
         </div>
@@ -11,8 +11,10 @@
 <script setup lang="ts">
     const props = withDefaults(defineProps<{
         description: string;
+        container?: boolean;
     }>(), {
         description: '',
+        container: true
     })
 
     const strippedDescription = computed(() => {

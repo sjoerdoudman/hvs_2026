@@ -8,7 +8,7 @@
                 <!-- <img class="object-cover w-full h-full scale-105" :src="data.image" alt=""> -->
                 <ElementsImage :width="'600'" :height="'600'" :url="data.image.url" :alt="data.image.alt"></ElementsImage>
             </figure>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-0.5 md:gap-2">
                 <h3 class="breit text-highlight text-[2.25rem] uppercase leading-none" v-html="data.title"></h3>
                 <p class="meta uppercase" v-html="data.function"></p>
             </div>
@@ -20,7 +20,7 @@
                 <ElementsImage :width="'600'" :height="'600'" :url="data.image.url" :alt="data.image.alt"></ElementsImage>
             </figure>
             <div class="flex flex-col gap-double-space">
-                <div class="flex flex-col gap-2">
+                <div class="flex flex-col gap-0.5 md:gap-2">
                     <h3 class="text-highlight uppercase leading-none h2" v-html="data.title"></h3>
                     <p class="meta uppercase" v-html="data.function"></p>
                 </div>

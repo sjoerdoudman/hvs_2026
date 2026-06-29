@@ -31,7 +31,7 @@
     }
 
     .router-link-active {
-        @apply underline underline-offset-[.15em]
+        @apply underline underline-offset-3 lg:underline-offset-[.15em]
     }
 
     :root { --swiper-pagination-top: calc(100% + 50px);}

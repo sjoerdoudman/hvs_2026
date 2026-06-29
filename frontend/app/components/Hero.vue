@@ -31,17 +31,17 @@
             </svg>
             <figure :class="[ reverse ? 'rotate-x-180' : '' ]" ref="image" class="maskedImg absolute pointer-events-none left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-[105vw] min-h-[105vh] aspect-square flex items-center justify-center bg-highlight">
                 <ElementsImage v-if="image" :width="'300'" :height="'400'" :url="image.url" :alt="image.alt"></ElementsImage>
-                <div v-else class="absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
-                    <div class="container--sm text-center">
-                        <h1 aria-hidden :class="[`text-theme-${theme}`, reverse ? 'rotate-x-180' : '']" class="display text-current uppercase" v-html="$softHyphen(title)"></h1>
+                <div v-else class="hidden lg:flex absolute z-999 left-1/2 top-1/2 lg:top-1/2 -translate-x-1/2 -translate-y-1/2 w-screen">
+                    <div class="container--lg text-center">
+                        <h1 style="word-break: break-word; hyphens: auto" aria-hidden :class="[`text-theme-${theme}`, reverse ? 'rotate-x-180' : '']" class="display text-current uppercase mx-6 block px-3" v-html="$softHyphen(title)"></h1>
                     </div>
                 </div>
             </figure>
         </div>
-        <div class="container--sm text-center relative">
-            <div class="sticky top-[50vh]">
-                <h1 :style="{ transform: `translateY(${-titleShift}px)` }" ref="titleRef" :class="[ animationComplete ? '' : 'opacity-0' ]" class="display text-highlight uppercase duration-300" v-html="$softHyphen(title)"></h1>
-                <Intro :style="{ transform: `translateY(${-titleShift}px)` }" class="mt-triple-space" :description="description"/>
+        <div class="container--lg text-center relative">
+            <div class="sticky top-[33vh] lg:top-[50vh]">
+                <h1 style="word-break: break-word; hyphens: auto" :style="{ transform: `translateY(${-titleShift}px)` }" ref="titleRef" :class="[ animationComplete ? '' : 'opacity-0' ]" class="display text-highlight uppercase duration-300" v-html="$softHyphen(title)"></h1>
+                <Intro :style="{ transform: `translateY(${-titleShift}px)` }" class="mt-triple-space" :description="description" :container="false"/>
             </div>
         </div>
     </div>
