@@ -15,7 +15,7 @@ export const useStatamic = () => {
   )
 
   const { data: newsData, pending: newsPending, error: newsError } = useFetch(
-    `${config.public.API_URL}/collections/news/entries?fields=id,slug,title,description,date,image,buttons,text,blocks,makers,categories,url&sort=date`,
+    `${config.public.API_URL}/collections/news/entries?fields=id,slug,title,description,date,image,buttons,text,blocks,makers,categories,url&sort=-date`,
     {
       key: 'statamic-news',
       server: false, // Only run on client side for now
@@ -87,6 +87,7 @@ export const useStatamic = () => {
   // Update news data
   watchEffect(() => {
     if (newsData.value) {
+      console.log('newsData', newsData.value)
       store.setNews(newsData.value)
     }
   })

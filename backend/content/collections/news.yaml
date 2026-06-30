@@ -8,7 +8,7 @@ taxonomies:
 revisions: false
 route: '{mount}/{slug}'
 date: true
-sort_dir: asc
+sort_dir: desc
 preview_targets:
   -
     label: Entry
