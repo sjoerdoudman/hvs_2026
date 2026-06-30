@@ -21,31 +21,62 @@ class CustomEntryResource extends EntryResource
 
         // Check if 'blocks' exists and process it
         if (!empty($entryData['blocks'])) {
-            foreach ($entryData['blocks'] as $blockKey => $block) {
-                if ($block['type'] == 'makers') {
-                    $newItems = [];
-                    foreach ($block['items'] as $itemKey => $item) {
-                        $newItems[] = $this->generateMakerOverride($item);
-                    }
-                    $entryData['blocks'][$blockKey]['items'] = $newItems;
+            $entryData['blocks'] = $this->processBlocks($entryData['blocks']);
+        }
+
+        // Recursively process any field that might contain text with assets
+        $entryData = $this->processContentRecursive($entryData);
+
+        return $entryData;
+    }
+
+    private function processBlocks($blocks) {
+        foreach ($blocks as $blockKey => $block) {
+            if ($block['type'] == 'makers') {
+                $newItems = [];
+                foreach ($block['items'] as $itemKey => $item) {
+                    $newItems[] = $this->generateMakerOverride($item);
                 }
-                if ($block['type'] == 'slideshow') {
-                    $slides = [];
-                    foreach ($block['slides'] as $slideKey => $slide) {
-                        $image = $this->generateImageOverride($slide['image']);
-                        $slideObject = (object) array(
-                            'image' => $image,
-                            'caption' => $slide['caption'],
-                            'id' => $slide['id']
-                        );
-                        $slides[] = $slideObject;
-                    }
-                    $entryData['blocks'][$blockKey]['slides'] = $slides;
+                $blocks[$blockKey]['items'] = $newItems;
+            }
+            if ($block['type'] == 'slideshow') {
+                $slides = [];
+                foreach ($block['slides'] as $slideKey => $slide) {
+                    $image = $this->generateImageOverride($slide['image']);
+                    $slideObject = (object) array(
+                        'image' => $image,
+                        'caption' => $slide['caption'],
+                        'id' => $slide['id']
+                    );
+                    $slides[] = $slideObject;
+                }
+                $blocks[$blockKey]['slides'] = $slides;
+            }
+            // Add automatic content processing for text blocks if needed
+            if (isset($block['text'])) {
+                $blocks[$blockKey]['text'] = $this->ensureAbsoluteUrls($block['text']);
+            }
+        }
+        return $blocks;
+    }
+
+    private function processContentRecursive($data) {
+        if (is_array($data)) {
+            foreach ($data as $key => $value) {
+                if (is_string($value) && ($key === 'text' || $key === 'description')) {
+                    $data[$key] = $this->ensureAbsoluteUrls($value);
+                } else {
+                    $data[$key] = $this->processContentRecursive($value);
                 }
             }
         }
+        return $data;
+    }
 
-        return $entryData;
+    private function ensureAbsoluteUrls($content) {
+        $baseUrl = config('app.url');
+        // Replace src="/assets/..." or href="/assets/..." with src="https://domain.com/assets/..."
+        return preg_replace('/(src|href)=["\'](\/assets\/[^"\']+)["\']/i', '$1="' . $baseUrl . '$2"', $content);
     }
 
     private function generateImageOverride($image) {
