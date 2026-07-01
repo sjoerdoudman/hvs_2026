@@ -83,7 +83,7 @@
     .editor ul,
     .editor ol {
       li {
-        @apply not-last:mb-single-space pl-5 relative flex;
+        @apply lg:not-last:mb-3 pl-5 relative flex;
       }
     }
 
