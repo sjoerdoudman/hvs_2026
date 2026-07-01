@@ -75,8 +75,8 @@
     // Get paginated news items
     const paginatedNews = computed(() => {
         if (!props.data?.pagination) {
-            // No pagination - show first 4 items
-            return news.value.slice(0, 4);
+            // No pagination - show first 6 items
+            return news.value.slice(0, 6);
         }
 
         // Pagination enabled - calculate slice based on current page
