@@ -26,3 +26,5 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 /content
+content/collections/*/
+!content/collections/*.yaml
