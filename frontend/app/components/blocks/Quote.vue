@@ -22,8 +22,8 @@
                 </clipPath>
             </defs>
         </svg>
-        <div class="container--lg relative z-2 py-[20vh] flex items-center justify-center">
-            <blockquote class="relative z-2 pt-[20vh]">
+        <div class="container--lg relative z-2 h-dvh flex items-center justify-center">
+            <blockquote class="sticky top-1/2 -translate-y-1/2 z-2">
                 <div class="content-column text-center">
                     <p class="h2 text-theme-darkblue" v-html="data?.quote"></p>
                 </div>
@@ -95,8 +95,8 @@
                 scrollTrigger: {
                     trigger: container.value,
                     scrub: 0.5,
-                    start: 'top 30%',
-                    end: 'bottom 30%', // controls how long the full cycle lasts
+                    start: 'top 50%',
+                    end: 'bottom 40%', // controls how long the full cycle lasts
                 }
             })
 

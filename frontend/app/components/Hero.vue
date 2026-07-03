@@ -13,7 +13,7 @@
                 height="100"
                 viewBox="0 0 100 100"
                 preserveAspectRatio="none"
-                class="absolute inset-0 pointer-events-none rotate-45"
+                class="absolute inset-0 pointer-events-none"
                 aria-hidden="true"
             >
                 <defs>
@@ -29,18 +29,18 @@
                     </clipPath>
                 </defs>
             </svg>
-            <figure :class="[ reverse ? 'rotate-x-180' : '' ]" ref="image" class="maskedImg absolute pointer-events-none left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-[105vw] min-h-[105vh] aspect-square flex items-center justify-center bg-highlight">
-                <ElementsImage v-if="image" :width="'300'" :height="'400'" :url="image.url" :alt="image.alt"></ElementsImage>
-                <div v-else class="hidden lg:flex absolute z-999 left-1/2 top-1/2 lg:top-1/2 -translate-x-1/2 -translate-y-1/2 w-screen">
+            <figure v-if="!animationComplete" ref="image" class="maskedImg fixed pointer-events-none left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-[105vw] min-h-[105vh] aspect-square flex items-center justify-center bg-highlight">
+                <ElementsImage v-if="image" :width="'1200'" :height="'1600'" :url="image.url" :alt="image.alt"></ElementsImage>
+                <div v-else class="flex absolute z-999 left-1/2 lg:top-1/2 lg:-translate-y-1/2 w-screen top-[33vh] -translate-x-1/2">
                     <div class="container--lg text-center">
-                        <h1 style="word-break: break-word; hyphens: auto" aria-hidden :class="[`text-theme-${theme}`, reverse ? 'rotate-x-180' : '']" class="display text-current uppercase mx-6 block px-3" v-html="$softHyphen(title)"></h1>
+                        <span style="word-break: break-word; hyphens: auto" aria-hidden :class="[`text-theme-${theme}`]" class="h1 display text-current uppercase mx-6 block px-3" v-html="$softHyphen(title)"></span>
                     </div>
                 </div>
             </figure>
         </div>
         <div class="container--lg text-center relative">
             <div class="sticky top-[33vh] lg:top-[50vh]">
-                <h1 style="word-break: break-word; hyphens: auto" :style="{ transform: `translateY(${-titleShift}px)` }" ref="titleRef" :class="[ animationComplete ? '' : 'opacity-0' ]" class="display text-highlight uppercase duration-300" v-html="$softHyphen(title)"></h1>
+                <h1 style="word-break: break-word; hyphens: auto" :style="{ transform: `translateY(${-titleShift}px)` }" ref="titleRef" :class="[ animationComplete ? '' : 'opacity-0' ]" class="text-highlight uppercase duration-300" v-html="$softHyphen(title)"></h1>
                 <Intro :style="{ transform: `translateY(${-titleShift}px)` }" class="mt-triple-space" :description="description" :container="false"/>
             </div>
         </div>
@@ -147,6 +147,8 @@
                     animationComplete.value = true
                 }
             });
+        } else {
+            animationComplete.value = true
         }
     }
 

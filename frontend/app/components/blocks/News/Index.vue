@@ -1,7 +1,7 @@
 <template>
     <section v-if="data" class="last:mb-quadruple-space">
         <div class="container--lg flex flex-col gap-double-space md:gap-triple-space">
-            <div class="title-block">
+            <div ref="titleRef" class="title-block">
                 <h2 class="text-highlight uppercase font-bold" v-html="data.title"></h2>
             </div>
             <div class="grid md:grid-cols-3 2xl:grid-cols-2 gap-x-double-space gap-y-triple-space">
@@ -38,6 +38,7 @@
 
 <script setup lang="ts">
     import { useStatamicStore } from '@/stores/statamic'
+    const titleRef = ref<HTMLDivElement|null>(null);
     const store = useStatamicStore();
     const news = computed(() => store.news);
     const route = useRoute();
@@ -63,7 +64,7 @@
 
     // Calculate items per page
     const itemsPerPage = computed(() => {
-        if (!props.data?.pagination) return 4; // Always show 4 if no pagination
+        if (!props.data?.pagination) return 3; // Always show 4 if no pagination
         return props.data?.maxItems || 6; // Use maxItems if pagination enabled, default 2
     });
 
@@ -94,6 +95,11 @@
             router.push({
                 query: { ...route.query, page: page.toString() }
             });
+            if (titleRef.value) {
+                // scroll till the titleRef is 140px from top
+                const top = titleRef.value.getBoundingClientRect().top + document.documentElement.scrollTop;
+                window.scrollTo({ top: top - 140, behavior: 'smooth' });
+            }
         } else {
             // For non-paginated blocks, just scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
