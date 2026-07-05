@@ -8,8 +8,8 @@ export default defineNuxtConfig({
   app: {
     layoutTransition: true,
     head: {
-      title: 'Huis van Salomon',
-      titleTemplate: '%s | Huis van Salomon',
+      title: 'Huis Salomon',
+      titleTemplate: '%s | Huis Salomon',
       htmlAttrs: { lang: 'nl' },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
