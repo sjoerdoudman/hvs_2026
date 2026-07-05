@@ -15,7 +15,7 @@
                     <Logo
                         :class="[
                             menuOpen ? 'fill-theme-darkgreen' : 'fill-highlight',
-                            !isEndHeroHome && !menuOpen ? '!fill-white' : '',
+                            isHome && !isEndHeroHome && !menuOpen ? '!fill-white' : '',
                             !isEndHeroHome && !menuOpen ? 'w-[70vw] md:w-[50vw] h-[20vh] md:h-[15vw] -translate-y-5' : 'w-60 h-10'
                         ]"
                         class="duration-500">
@@ -26,7 +26,7 @@
                         :class="[
                             menuOpen ? 'fill-theme-darkgreen' : 'fill-highlight',
                         ]"
-                        class="duration-500 fill-white w-60 h-10">
+                        class="duration-500 w-60 h-10">
                     </Logo>
                 </nuxt-link>
             </div>
