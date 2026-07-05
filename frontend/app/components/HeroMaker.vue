@@ -28,14 +28,14 @@
             <figure ref="image" class="maskedImg absolute pointer-events-none top-0 left-0 w-screen h-full flex items-center justify-center bg-highlight">
             </figure>
         </div>
-        <div class="container--lg w-full relative text-center pt-double-space flex flex-col gap-double-space lg:min-h-screen">
+        <div class="container--lg w-full relative text-center pt-double-space flex flex-col gap-double-space">
             <div class="flex flex-col gap-4">
                 <small class="uppercase font-bold" v-html="function"></small>
                 <h1 class="text-highlight display uppercase leading-tight">{{ $softHyphen(title) }}</h1>
             </div>
             <div class="flex justify-center">
-                <figure class="aspect-3/4 min-w-full lg:min-w-[40vw]">
-                    <ElementsImage :width="'900'" :height="'1200'" :url="image.url" :alt="image.alt"></ElementsImage>
+                <figure class="aspect-3/4 min-w-full lg:min-w-[40vw] max-h-[80dvh]">
+                    <ElementsImage :width="'900'" :height="'1200'" :url="image.url" :alt="image.alt" class="max-h-[65dvh]"></ElementsImage>
                 </figure>
             </div>
         </div>
