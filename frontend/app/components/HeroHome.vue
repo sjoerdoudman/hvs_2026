@@ -74,7 +74,7 @@
         return `
             ${topAnchorX},-10
             ${topAnchorX},-10
-            ${topAnchorX},-10
+            ${topAnchorX},-11
             0.5,0.5
             ${topAnchorX},-10
         `;
@@ -82,7 +82,7 @@
     const secondPointsOrigin = computed(() => {
         return `
             ${bottomAnchorX},10
-            ${bottomAnchorX},10
+            ${bottomAnchorX},11
             0.5,0.5
             ${bottomAnchorX},10
             ${bottomAnchorX},10

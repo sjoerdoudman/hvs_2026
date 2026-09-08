@@ -36,7 +36,6 @@ const visible = ref(false)
 const isLarge = ref(true)
 
 function clampSlot(slot: { col: number; span: number }) {
-  console.log('large', isLarge.value);
   const maxStart = (isLarge.value ? 12 : 6) - slot.span + 1
 
   return {

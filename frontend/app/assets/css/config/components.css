@@ -27,7 +27,12 @@
         @apply !bg-theme-lime
     }
     .swiper-button-prev, .swiper-button-next {
-        @apply !bg-theme-lime !text-black
+        @apply !bg-theme-lime !text-black;
+    }
+
+    .swiper-button-disabled.swiper-button-prev,
+    .swiper-button-disabled.swiper-button-next {
+        @apply opacity-100 !text-gray-600 bg-gray-400;
     }
 
     .router-link-active {

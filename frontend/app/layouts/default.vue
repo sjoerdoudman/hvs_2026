@@ -1,26 +1,32 @@
 <template>
     <div>
-        <div class="w-full relative z-10" :class="[footerIsFocusable ? 'pointer-events-none' : '']" :style="{ marginBottom: footer ? fh + 'px' : '0px' }">
+        <div class="w-full relative z-10" :class="[footerIsFocusable ? 'pointer-events-none' : '']" :style="{ marginBottom: footerRef ? fh + 'px' : '0px' }">
             <div :class="[ `theme bg-theme-${theme}` ]" class=" text-white">
                 <Header class="duration-300" :class="[ showHeader ? 'opacity-100' : 'opacity-0 pointer-events-none' ]" />
                 <NavigationMain></NavigationMain>
-                <div class="min-h-screen" :class="[`bg-theme-${theme}`]">
+                <div class="min-h-dvh" :class="[`bg-theme-${theme}`]">
                     <NuxtPage />
                 </div>
+                <div ref="pageRef"></div>
             </div>
         </div>
-        <Footer ref="footer" class="lg:fixed w-full left-0 bottom-0" />
+        <Footer ref="footerRef" class="lg:fixed w-full left-0 bottom-0" />
     </div>
 </template>
 
 <script setup lang="ts">
+    import gsap from 'gsap';
     import { useUIStore } from '@/stores/ui';
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+
     const { pages, news, makers, events, mainMenu, globals, loading } = useStatamic()
     const ui = useUIStore();
     const { toggleHideFooter, toggleFooterIsFocusable } = ui;
     const { theme } = storeToRefs(ui);
 
-    const footer = ref<{$el: HTMLElement} | null>(null);
+    const pageRef = ref<HTMLDivElement | null>(null);
+    const footerRef = ref<{$el: HTMLElement} | null>(null);
     const footerIsFocusable = ref(false);
     const fh = ref<number>(0);
     const showHeader = ref(true);
@@ -31,11 +37,12 @@
         const sy = window.scrollY || 0;
         const wh = window.innerHeight || 0;
         const ww = window.innerWidth || 0;
+        const ph = pageRef.value?.$el?.offsetHeight || 0
 
-        // console.log(sh, sy, wh)
+        // console.log(sy, sh - wh - ph)
 
         if (ww < 1024) {
-            const f = footer.value?.$el?.offsetHeight || 0
+            const f = footerRef.value?.$el?.offsetHeight || 0
             if (sh < sy + f + 70) {
                 footerIsFocusable.value = true
                 showHeader.value = false
@@ -44,6 +51,12 @@
                 showHeader.value = true
             }
             return
+        }
+
+        // when pageRef is in bottom of viewport
+        if (sy > sh - wh - ph) {
+            footerIsFocusable.value = true
+            showHeader.value = false
         }
 
         if (sy > sh - wh) {
@@ -79,18 +92,37 @@
     }
 
     const setFooterHeight = () => {
-        if (!footer.value) return
+        if (!footerRef.value) return
         if (window.innerWidth < 1024) {
             fh.value = 0;
             return
         };
-        fh.value = footer.value?.$el.offsetHeight || 0;
+        fh.value = footerRef.value?.$el.offsetHeight || 0;
     }
 
     onMounted(() => {
         window.addEventListener('scroll', onScroll);
         window.addEventListener('resize', onResize);
         setFooterHeight();
+
+        // TODO: implement scroll trigger
+        // if (pageRef.value) {
+        //     ScrollTrigger.create({
+        //         trigger: pageRef.value,
+        //         // when the bottom of the trigger hits the bottom of the viewport
+        //         start: 'bottom bottom',
+        //         immediateRender: false,
+
+        //         onEnter: () => {
+        //             console.log('onEnter');
+        //         },
+        //         onLeaveBack: () => {
+        //             console.log('onLeave');
+        //         }
+        //     });
+        //     ScrollTrigger.refresh();
+        // }
+
         // add lime color to body
         document.body.classList.add(`bg-theme-${theme.value}`)
     })

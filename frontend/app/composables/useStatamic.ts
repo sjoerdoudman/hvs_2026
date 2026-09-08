@@ -87,7 +87,7 @@ export const useStatamic = () => {
   // Update news data
   watchEffect(() => {
     if (newsData.value) {
-      console.log('newsData', newsData.value)
+      // console.log('newsData', newsData.value)
       store.setNews(newsData.value)
     }
   })
