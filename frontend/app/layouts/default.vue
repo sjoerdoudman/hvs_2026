@@ -100,7 +100,7 @@
         fh.value = footerRef.value?.$el.offsetHeight || 0;
     }
 
-    onMounted(async () => {
+    onMounted(() => {
         window.addEventListener('scroll', onScroll);
         window.addEventListener('resize', onResize);
         setFooterHeight();
