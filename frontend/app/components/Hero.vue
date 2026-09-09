@@ -1,5 +1,5 @@
 <template>
-    <div ref="heroRef" class="w-full h-[120vh] flex relative mb-[25vh] md:mb-sextuple-space">
+    <div ref="heroRef" class="w-full h-[120vh] flex relative mb-sextuple-space">
         <div class="fixed w-screen h-auto top-[90vh] flex justify-center z-40">
             <button v-if="!animationComplete" @click="scrollDown()" aria-label="Scroll naar de inhoud" :class="[ `bg-theme-${theme}` ]" class="flex items-center justify-center size-12 rounded-full cursor-pointer">
                 <span class="material-symbols-outlined text-3xl text-highlight">
@@ -30,7 +30,7 @@
                 </defs>
             </svg>
             <figure v-if="!animationComplete" ref="image" class="maskedImg fixed pointer-events-none left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-[105vw] min-h-[105vh] aspect-square flex items-center justify-center bg-highlight">
-                <ElementsImage v-if="image" :width="'1200'" :height="'1600'" :url="image.url" :alt="image.alt"></ElementsImage>
+                <ElementsImage v-if="image" :width="'1200'" :height="'1600'" :url="image.url" :alt="image.alt" :position="image.focus"></ElementsImage>
                 <div v-else class="flex absolute z-999 left-1/2 lg:top-1/2 lg:-translate-y-1/2 w-screen top-[33vh] -translate-x-1/2">
                     <div class="container--lg text-center">
                         <span style="word-break: break-word; hyphens: auto" aria-hidden :class="[`text-theme-${theme}`]" class="h1 display text-current uppercase mx-6 block px-3" v-html="$softHyphen(title)"></span>
@@ -70,6 +70,8 @@
         description: '',
         reverse: false
     })
+
+    console.log(props.image);
 
     // const heroHeight = ref(0);
     // const scrolled = ref(false);

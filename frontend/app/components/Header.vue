@@ -69,7 +69,7 @@
     onMounted(() => {
         initTransition()
     })
-    watch (isHome, () => {
-        console.log('home changed')
-    })
+    // watch (isHome, () => {
+    //     console.log('home changed')
+    // })
 </script>

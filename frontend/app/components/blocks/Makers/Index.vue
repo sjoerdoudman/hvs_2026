@@ -10,7 +10,7 @@
             </div>
         </div>
         <div v-if="data.buttons.length > 0" class="container--lg w-full">
-            <div class="flex flex-col md:flex-row gap-6">
+            <div class="flex flex-col md:flex-row md:flex-wrap gap-6">
                 <ElementsButton v-for="button in data.buttons" :data="button"></ElementsButton>
             </div>
         </div>

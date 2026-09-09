@@ -4,7 +4,7 @@
             <div class="max-w-[600px]">
                 <div class="col-span-2 flex flex-col gap-4">
                     <div v-html="data.text"></div>
-                    <div v-if="data.buttons" class="flex gap-6">
+                    <div v-if="data.buttons" class="flex flex-wrap gap-6">
                         <ElementsButton v-for="button in data.buttons" :data="button"></ElementsButton>
                     </div>
                 </div>

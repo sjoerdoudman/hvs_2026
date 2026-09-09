@@ -10,7 +10,7 @@
                         <h3 v-if="data.title" class="text-highlight text-[2.25rem]" v-html="data.title"></h3>
                         <div v-if="data.text" class="editor" v-html="data.text"></div>
                     </div>
-                    <div v-if="data.buttons?.length" class="flex gap-6 mt-single-space">
+                    <div v-if="data.buttons?.length" class="flex flex-wrap gap-6 mt-single-space">
                         <ElementsButton v-for="button in data.buttons" :data="button"></ElementsButton>
                     </div>
                 </div>

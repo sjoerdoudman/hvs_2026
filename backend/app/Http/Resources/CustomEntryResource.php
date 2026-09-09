@@ -24,6 +24,11 @@ class CustomEntryResource extends EntryResource
             $entryData['blocks'] = $this->processBlocks($entryData['blocks']);
         }
 
+        // Check if 'image' exists and process it
+        if (!empty($entryData['image'])) {
+            $entryData['image'] = $this->generateImageOverride($entryData['image']);
+        }
+
         // Recursively process any field that might contain text with assets
         $entryData = $this->processContentRecursive($entryData);
 
@@ -89,10 +94,16 @@ class CustomEntryResource extends EntryResource
             $height = $asset['height'] ?? null;
             $ratio = $width && $height ? $width / $height : null;
 
+            // Get focal point (format: "x-y", e.g. "50-50" for center)
+            $focus = $asset->get('focus', '50-50');
+            $parts = explode('-', $focus);
+            $focusCss = $parts[0] . '% ' . $parts[1] . '%';
+
             $image = (object) array(
                 'id' => $image['id'],
                 'alt' => $image['alt'],
                 'srcset' => $srcset,
+                'focus' => $focusCss,
                 'url' => config('app.url') . $asset->manipulate(['w' => 1536, 'fit' => 'max']),
                 'original' => [
                     'url' => config('app.url') . $asset->url(),
