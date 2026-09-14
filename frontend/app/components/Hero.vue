@@ -71,7 +71,7 @@
         reverse: false
     })
 
-    console.log(props.image);
+    // console.log(props.image);
 
     // const heroHeight = ref(0);
     // const scrolled = ref(false);
