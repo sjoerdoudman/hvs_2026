@@ -5,3 +5,25 @@ fields:
     field:
       type: text
       display: Title
+  -
+    handle: selection
+    field:
+      options:
+        -
+          key: automatic
+          value: Automatic
+        -
+          key: manual
+          value: Manual
+      type: radio
+      display: Selection
+  -
+    handle: news
+    field:
+      collections:
+        - news
+      max_items: 3
+      type: entries
+      display: News
+      if:
+        selection: 'equals manual'
