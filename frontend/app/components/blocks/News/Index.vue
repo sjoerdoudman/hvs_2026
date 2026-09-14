@@ -58,7 +58,7 @@
         data: null,
     })
 
-    console.log('news data', props.data)
+    // console.log('news data', props.data)
 
     // When selection is 'manual', use the news entries selected in the CMS.
     // Otherwise fall back to all news from the store (automatic).
