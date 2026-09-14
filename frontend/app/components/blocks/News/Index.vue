@@ -5,7 +5,7 @@
                 <h2 class="text-highlight uppercase font-bold" v-html="data.title"></h2>
             </div>
             <div class="grid md:grid-cols-3 2xl:grid-cols-2 gap-x-double-space gap-y-triple-space">
-                <TeaserNews v-for="item in paginatedNews" :data="item" :showMeta="false"/>
+                <TeaserNews v-for="item in paginatedNews" :data="item" :showMeta="data?.selection?.value !== 'manual'"/>
             </div>
 
             <!-- Pagination controls -->
