@@ -5,7 +5,7 @@
                 <h2 class="text-highlight uppercase font-bold" v-html="data.title"></h2>
             </div>
             <div class="grid md:grid-cols-3 2xl:grid-cols-2 gap-x-double-space gap-y-triple-space">
-                <TeaserNews v-for="item in paginatedNews" :data="item"/>
+                <TeaserNews v-for="item in paginatedNews" :data="item" :showMeta="data?.selection?.value !== 'manual'"/>
             </div>
 
             <!-- Pagination controls -->
@@ -45,9 +45,11 @@
     const router = useRouter();
 
     interface NewsList {
-        title: string;
+        title?: string;
         maxItems?: number;
         pagination?: boolean;
+        selection?: { value: string | null } | null;
+        news?: any[];
     }
 
     const props = withDefaults(defineProps<{
@@ -55,6 +57,20 @@
     }>(),{
         data: null,
     })
+
+    // console.log('news data', props.data)
+
+    // When selection is 'manual', use the news entries selected in the CMS.
+    // Otherwise fall back to all news from the store (automatic).
+    const selectedNews = computed(() => {
+        if (props.data?.selection?.value === 'manual' && props.data?.news?.length) {
+            const ids = props.data.news.map((item: any) => item.id);
+            return news.value
+                .filter((item: any) => ids.includes(item.id))
+                .sort((a: any, b: any) => ids.indexOf(a.id) - ids.indexOf(b.id));
+        }
+        return news.value;
+    });
 
     // Get current page from query param (default to 1)
     const currentPage = computed(() => {
@@ -70,20 +86,20 @@
 
     // Calculate total pages
     const totalPages = computed(() => {
-        return Math.ceil(news.value.length / itemsPerPage.value);
+        return Math.ceil(selectedNews.value.length / itemsPerPage.value);
     });
 
     // Get paginated news items
     const paginatedNews = computed(() => {
         if (!props.data?.pagination) {
             // No pagination - show first 6 items
-            return news.value.slice(0, 6);
+            return selectedNews.value.slice(0, 6);
         }
 
         // Pagination enabled - calculate slice based on current page
         const start = (currentPage.value - 1) * itemsPerPage.value;
         const end = start + itemsPerPage.value;
-        return news.value.slice(start, end);
+        return selectedNews.value.slice(start, end);
     });
 
     // Navigation function

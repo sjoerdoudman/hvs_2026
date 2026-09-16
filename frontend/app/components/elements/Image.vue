@@ -4,8 +4,9 @@
         :alt="alt"
         :width="w"
         :height="h"
+        :style="{ objectPosition: position }"
         loading="lazy"
-        class="w-full h-full object-cover object-center"
+        class="w-full h-full object-cover"
     />
 </template>
 
@@ -16,12 +17,14 @@
         url: string,
         alt?: string,
         w?: string,
-        h?: string
+        h?: string,
+        position?: string
     }>(), {
         url: '',
         alt: 'Image',
         w: '600',
-        h: '600'
+        h: '600',
+        position: '50% 50%'
     })
 
     const src = computed(() => {

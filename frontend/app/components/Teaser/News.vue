@@ -3,7 +3,7 @@
         <span class="sr-only" v-text="data.title"></span>
         <div aria-hidden class="flex flex-col gap-single-space">
             <div class="flex flex-col gap-single-space">
-                <div class="flex gap-2">
+                <div class="flex gap-2" v-if="showMeta">
                     <span v-if="categories" class="meta uppercase font-semibold text-highlight">{{ categories }}</span>
                     <span v-if="categories" class="text-highlight">-</span>
                     <span class="meta uppercase font-semibold text-highlight">{{ month }} {{ year }}</span>
@@ -23,8 +23,10 @@
 <script setup lang="ts">
     const props = withDefaults(defineProps<{
         data?: any;
+        showMeta?: boolean
     }>(),{
         data: null,
+        showMeta: true
     })
     // get the Dutch month name
     const month = computed(() => new Date(props.data.date).toLocaleString('nl', { month: 'long' }))
